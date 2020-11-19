@@ -8,6 +8,7 @@
 public class NetVariables
 {
     public string uniqueId;
+	public QualityStates qualityStates;
     
     //...add more variables here
 }
