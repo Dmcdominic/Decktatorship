@@ -20,11 +20,13 @@ namespace UnitySocketIO {
             else {
                 socketIO = gameObject.AddComponent<NativeSocketIO>();
             }
-            
-            socketIO.Init(settings);
+            print("AWAKE");
+            //socketIO.Init(settings);
         }
 
         public void Connect() {
+            print("CONNECTING");
+            socketIO.Init(settings);
             socketIO.Connect();
         }
 

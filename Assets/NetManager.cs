@@ -45,10 +45,11 @@ public class NetManager : MonoBehaviour
         socket = GetComponent<SocketIOController>();
         gameMenu = GetComponent<GameMenu>();
 
+        //to switch quickly between local and online you can override the settings here
         if (GLITCH)
         {
             socket.settings.url = "yourglitchdomain.glitch.me";
-            socket.settings.port = 0;
+            socket.settings.port = 0 ;
             socket.settings.sslEnabled = true;
         }
         else if (HEROKU)
@@ -58,6 +59,8 @@ public class NetManager : MonoBehaviour
             socket.settings.sslEnabled = true;
         }
 
+        //connect to the server
+        socket.Connect();
 
         Net.connected = false;
         
@@ -113,8 +116,6 @@ public class NetManager : MonoBehaviour
         //make a global reference to this script
         Net.manager = this;
         
-        //connect to the server
-        socket.Connect();
 
         ServerMessage("Connecting to server...");
 
