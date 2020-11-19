@@ -20,7 +20,7 @@ namespace UnitySocketIO {
             else {
                 socketIO = gameObject.AddComponent<NativeSocketIO>();
             }
-            print("AWAKE");
+            //print("AWAKE");
             //socketIO.Init(settings);
         }
 
@@ -53,8 +53,6 @@ namespace UnitySocketIO {
         public void Off(string e, Action<SocketIOEvent> callback) {
             socketIO.Off(e, callback);
         }
-
-
 
     }
 }

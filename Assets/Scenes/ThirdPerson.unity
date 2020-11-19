@@ -333,9 +333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
-    url: localhost
-    port: 3000
-    sslEnabled: 0
+    url: oligarchy-server.glitch.me/
+    port: 0
+    sslEnabled: 1
     reconnectTime: 500
     timeToDropAck: 250
     pingTimeout: 5

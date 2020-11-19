@@ -25,8 +25,8 @@ public class TwinStickController : MonoBehaviour
     {
         //Analog controls add a dead zone
         //must be configured in Player > Input
-        if(Mathf.Abs(Input.GetAxis("HorizontalLeft")) > DEAD_ZONE || Mathf.Abs(Input.GetAxis("VerticalLeft")) > DEAD_ZONE)
-            moveDirection = new Vector3(Input.GetAxis("HorizontalLeft"), moveDirection.y, Input.GetAxis("VerticalLeft"));
+        if(Mathf.Abs(Input.GetAxis("Horizontal")) < -DEAD_ZONE || Mathf.Abs(Input.GetAxis("Vertical")) < -DEAD_ZONE)
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), moveDirection.y, Input.GetAxis("Vertical"));
         else
             moveDirection = new Vector3(0, moveDirection.y, 0);
 
@@ -41,8 +41,8 @@ public class TwinStickController : MonoBehaviour
             moveDirection.z = -1;
 
 
-        if (Mathf.Abs(Input.GetAxis("HorizontalRight")) > DEAD_ZONE || Mathf.Abs(Input.GetAxis("VerticalRight")) > DEAD_ZONE)
-            lookDirection = new Vector3(Input.GetAxis("HorizontalRight"), 0, Input.GetAxis("VerticalRight"));
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) > DEAD_ZONE || Mathf.Abs(Input.GetAxis("Vertical")) > DEAD_ZONE)
+            lookDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         //alt controls
         if (Input.GetKey(KeyCode.LeftArrow))
