@@ -4,6 +4,10 @@ using System.Collections;
 namespace UnitySocketIO.SocketIO {
 	[System.Serializable]
 	public class SocketIOSettings {
+		
+		public enum URL_TYPE { GLITCH, LOCAL, CUSTOM }
+
+		public URL_TYPE url_type;
 
 		public string url;
 		public int port;

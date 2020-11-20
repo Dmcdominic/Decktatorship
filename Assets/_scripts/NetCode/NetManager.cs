@@ -587,8 +587,9 @@ public class NetManager : MonoBehaviour
     public void SetVariables(string uniqueId, NetVariables vars)
     {
         vars.uniqueId = uniqueId;
-        
-        socket.Emit("setVariables", JsonUtility.ToJson(vars));   
+
+		Debug.Log("emitting setVariables");
+		socket.Emit("setVariables", JsonUtility.ToJson(vars));   
     }
 
     //from the server: a NetVariable changed
