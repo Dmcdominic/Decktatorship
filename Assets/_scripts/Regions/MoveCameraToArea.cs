@@ -15,9 +15,10 @@ public class MoveCameraToArea : MonoBehaviour
         currentView = defaultView;
     }
 
-   void LateUpdate()
+    
+    void LateUpdate()
     {
         //Lerp Position
-        transform.position = Vector3.Lerp(transform.position, currentView.position, Time.deltaTime * transitionSpeed);
+        transform.position = Vector3.Lerp(transform.position, currentView.localPosition, Time.deltaTime * transitionSpeed);
     }
 }
