@@ -7,15 +7,28 @@ public class ClickRegion : MonoBehaviour {
 	public regionView regionV;
 
 	private NetObject thisNetObj;
-
-
+	public Camera cameraThing;
+	private MoveCameraToArea cameraMan; 
+	public Transform cameraPos;
+	private bool goToRegion = true;
 	// Start is called before the first frame update
 	void Start() {
 		thisNetObj = GetComponentInParent<NetObject>();
+		cameraMan = cameraThing.GetComponent<MoveCameraToArea>();
 	}
 
 	private void OnMouseDown() {
 		Debug.Log("Region " + gameObject.name + " clicked");
+		if (goToRegion)
+        {
+			cameraMan.currentView = cameraPos;
+			goToRegion = false;
+		}
+        else
+        {
+			cameraMan.currentView = cameraMan.defaultView;
+			goToRegion = true;
+		}
 		regionV.currentRegion = thisNetObj;
 
 		//NetVariables netVariables = thisNetObj.netVariables;
