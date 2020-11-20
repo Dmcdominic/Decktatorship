@@ -378,7 +378,7 @@ public class NetManager : MonoBehaviour
         netObj.type = data.type;
         netObj.owner = data.owner;
         netObj.prefabName = data.prefabName;
-		netObj.netVariables = new NetVariables(data.uniqueId);
+		netObj.netVariables = new NetVariables(data.uniqueId, netObj.prefabName);
 
         Net.objects[data.uniqueId] = netObj;
 
@@ -587,8 +587,9 @@ public class NetManager : MonoBehaviour
     public void SetVariables(string uniqueId, NetVariables vars)
     {
         vars.uniqueId = uniqueId;
-        
-        socket.Emit("setVariables", JsonUtility.ToJson(vars));   
+
+		Debug.Log("emitting setVariables");
+		socket.Emit("setVariables", JsonUtility.ToJson(vars));   
     }
 
     //from the server: a NetVariable changed
@@ -604,7 +605,7 @@ public class NetManager : MonoBehaviour
             NetObject netObject = Net.objects[data.uniqueId];
 
             if(netObject.netVariables == null)
-                netObject.netVariables = new NetVariables(data.uniqueId);
+                netObject.netVariables = new NetVariables(data.uniqueId, "MISSING");
 
             Type myObjectType = data.GetType();
 

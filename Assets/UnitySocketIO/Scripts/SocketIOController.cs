@@ -22,6 +22,16 @@ namespace UnitySocketIO {
             }
             //print("AWAKE");
             //socketIO.Init(settings);
+
+			if (settings.url_type == SocketIOSettings.URL_TYPE.GLITCH) {
+				settings.url = "oligarchy-server.glitch.me/";
+				settings.port = 0;
+				settings.sslEnabled = true;
+			} else if (settings.url_type == SocketIOSettings.URL_TYPE.LOCAL) {
+				settings.url = "localhost";
+				settings.port = 3000;
+				settings.sslEnabled = false;
+			}
         }
 
         public void Connect() {

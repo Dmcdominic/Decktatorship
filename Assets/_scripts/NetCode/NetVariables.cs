@@ -8,10 +8,12 @@
 public class NetVariables
 {
     public string uniqueId;
+	public string regionName;
 	public QualityStates qualityStates;
 
-	public NetVariables(string _uniqueId) {
+	public NetVariables(string _uniqueId, string _regionName) {
 		uniqueId = _uniqueId;
+		regionName = _regionName.Replace("Wrapper", "").ToUpper();
 		qualityStates.states = new int[System.Enum.GetValues(typeof(Quality)).Length];
 	}
 }
