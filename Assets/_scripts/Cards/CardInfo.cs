@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 // enums
 public enum Quality { LIBERTY, HAPPINESS, MONEY, MILITARY }
 public enum Amount { LOW, MEDIUM, HIGH }
 public enum Locality { LOCAL, ADJACENT, GLOBAL }
-
 
 
 // Info for a specific card
@@ -24,7 +22,6 @@ public class CardInfo : ScriptableObject {
 }
 
 
-
 // Info for how something will impact a particular quality
 [System.Serializable]
 public struct Impact {
@@ -32,4 +29,10 @@ public struct Impact {
 	public Amount amount;
 	public Quality quality;
 	public Locality locality;
+
+	public int getScaledAmount() {
+		int baseAmt = 1;
+		int absAmt = baseAmt * (1 + (int)amount);
+		return decrease ? -absAmt : absAmt;
+	}
 }

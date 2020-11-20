@@ -9,6 +9,9 @@ public class NetVariables
 {
     public string uniqueId;
 	public QualityStates qualityStates;
-    
-    //...add more variables here
+
+	public NetVariables(string _uniqueId) {
+		uniqueId = _uniqueId;
+		qualityStates.states = new int[System.Enum.GetValues(typeof(Quality)).Length];
+	}
 }

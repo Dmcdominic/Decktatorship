@@ -12,3 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99af7d8ee7d2934db9cb7d210d07879, type: 3}
   m_Name: InciteRiots
   m_EditorClassIdentifier: 
+  title: Incite Riots
+  description: Pitchforks and stuff
+  sprite: {fileID: 0}
+  impacts:
+  - decrease: 1
+    amount: 2
+    quality: 1
+    locality: 0
+  - decrease: 0
+    amount: 0
+    quality: 0
+    locality: 0

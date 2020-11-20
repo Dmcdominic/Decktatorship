@@ -87,18 +87,18 @@ public class GameMenu : MonoBehaviour
         nickNameField.Select();
         nickNameField.ActivateInputField();
 
-        menuCamera.SetActive(true);
+        //menuCamera.SetActive(true);
 
-        if(menuAvatar != null)
-           menuAvatar.SetActive(true);
+        //if(menuAvatar != null)
+        //   menuAvatar.SetActive(true);
 
         menuUI.SetActive(true);
     }
 
     public void CloseMenu()
     {
-        menuCamera.SetActive(false);
-        menuAvatar.SetActive(false);
+        //menuCamera.SetActive(false);
+        //menuAvatar.SetActive(false);
         menuUI.SetActive(false);
     }
 

@@ -221,20 +221,20 @@ public class NetManager : MonoBehaviour
                     Destroy(myAvatar);
 
                 //instantiate on the scene
-                myAvatar = Instantiate(Resources.Load(MyAvatarPrefabName) as GameObject);
-                myAvatar.name = socket.SocketID;
+                //myAvatar = Instantiate(Resources.Load(MyAvatarPrefabName) as GameObject);
+                //myAvatar.name = socket.SocketID;
 
 
-                //fetch or add the netcomponent object
-                NetObject netObj = myAvatar.GetComponent<NetObject>();
+                ////fetch or add the netcomponent object
+                //NetObject netObj = myAvatar.GetComponent<NetObject>();
 
-                if (netObj == null)
-                    netObj = myAvatar.AddComponent<NetObject>();
+                //if (netObj == null)
+                //    netObj = myAvatar.AddComponent<NetObject>();
 
-                Net.objects[socket.SocketID] = netObj;
-                netObj.owner = socket.SocketID;
-                netObj.type = Net.TEMPORARY;
-                netObj.prefabName = MyAvatarPrefabName;
+                //Net.objects[socket.SocketID] = netObj;
+                //netObj.owner = socket.SocketID;
+                //netObj.type = Net.TEMPORARY;
+                //netObj.prefabName = MyAvatarPrefabName;
 
                 //other client should instantiate a different avatar without controls
                 //and camera but if it's not provided that's fine too
@@ -242,20 +242,20 @@ public class NetManager : MonoBehaviour
                     OtherAvatarPrefabName = MyAvatarPrefabName;
 
                 //tell the server to tell the other clients to make a puppet avatar
-                InstantiationData iData = new InstantiationData();
-                iData.prefabName = OtherAvatarPrefabName;
-                iData.uniqueId = socket.SocketID;
-                iData.type = Net.TEMPORARY;
+                //InstantiationData iData = new InstantiationData();
+                //iData.prefabName = OtherAvatarPrefabName;
+                //iData.uniqueId = socket.SocketID;
+                //iData.type = Net.TEMPORARY;
 
                 //instantiate all avatars around 0,0 by default
                 //this is game logic and can be changed here on the server or on the netObject upon instantiation 
-                Vector2 spawnRange = UnityEngine.Random.insideUnitCircle * spawnRadius;
-                myAvatar.transform.position = iData.position = new Vector3(spawnPoint.x + spawnRange.x, spawnPoint.y, spawnPoint.z + spawnRange.y);
-                myAvatar.transform.localScale = iData.localScale = Vector3.one;
-                myAvatar.transform.rotation = iData.rotation = Quaternion.identity;
+                //Vector2 spawnRange = UnityEngine.Random.insideUnitCircle * spawnRadius;
+                //myAvatar.transform.position = iData.position = new Vector3(spawnPoint.x + spawnRange.x, spawnPoint.y, spawnPoint.z + spawnRange.y);
+                //myAvatar.transform.localScale = iData.localScale = Vector3.one;
+                //myAvatar.transform.rotation = iData.rotation = Quaternion.identity;
 
-                print("Instantiation " + myAvatar.transform.position);
-                socket.Emit("instantiateAvatar", JsonUtility.ToJson(iData));
+                //print("Instantiation " + myAvatar.transform.position);
+                //socket.Emit("instantiateAvatar", JsonUtility.ToJson(iData));
 
             }//end avatar creation
 
@@ -287,7 +287,19 @@ public class NetManager : MonoBehaviour
             }
 
 
-        }//is it me?
+			// If we are the authority, instantiate each region as a netObject
+			// TODO - do this only when the server tells us we need fresh stuff?
+			//    OR - initialize them as PERSISTENT and have a reset button?
+			if (Net.authority) {
+				Debug.Log("INSTANTIATING the region wrappers!");
+				Net.Instantiate("redWrapper", Net.SHARED, new Vector3());
+				Net.Instantiate("purpleWrapper", Net.SHARED, new Vector3());
+				Net.Instantiate("greenWrapper", Net.SHARED, new Vector3());
+				Net.Instantiate("blueWrapper", Net.SHARED, new Vector3());
+			}
+
+
+		}//is it me?
 
         //add the player object to the players dictionary
         Net.players[p.id] = p;
@@ -366,7 +378,8 @@ public class NetManager : MonoBehaviour
         netObj.type = data.type;
         netObj.owner = data.owner;
         netObj.prefabName = data.prefabName;
-        
+		netObj.netVariables = new NetVariables(data.uniqueId);
+
         Net.objects[data.uniqueId] = netObj;
 
        netObj.OnVariableInit();
@@ -413,7 +426,7 @@ public class NetManager : MonoBehaviour
     {
         OwnershipData data = new OwnershipData();
         data.uniqueId = uniqueId;
-        data.owner = Net.myId;
+        data.owner = socket.SocketID;
         socket.Emit("requestOwnership", JsonUtility.ToJson(data));
     }
 
@@ -459,10 +472,9 @@ public class NetManager : MonoBehaviour
     public void OnSetAuthority(SocketIOEvent e)
     {
         IdData data = JsonUtility.FromJson<IdData>(e.data.ToString());
-        Debug.Log("Authority is set to: " + data.id);
-        Net.authorityId = data.id;
+		Net.authorityId = data.id;
 
-        Net.authority = (data.id == Net.myId && data.id != "");
+        Net.authority = (data.id == socket.SocketID && data.id != "");
         
         if (Net.authority)
             print("I AM THE AUTHORITY!");
@@ -518,7 +530,7 @@ public class NetManager : MonoBehaviour
     {
         //tell the server to tell the other clients to do the same
         MessageData data = new MessageData();
-        data.id = Net.myId;
+        data.id = socket.SocketID;
         data.message = msg;
         socket.Emit("message", JsonUtility.ToJson(data));
     }
@@ -582,6 +594,9 @@ public class NetManager : MonoBehaviour
     //from the server: a NetVariable changed
     public void OnSetVariables(SocketIOEvent e)
     {
+		Debug.Log("OnSetVariables");
+		Debug.Log(e.data);
+
         NetVariables data = JsonUtility.FromJson<NetVariables>(e.data.ToString());
         
         if (Net.objects.ContainsKey(data.uniqueId))
@@ -589,7 +604,7 @@ public class NetManager : MonoBehaviour
             NetObject netObject = Net.objects[data.uniqueId];
 
             if(netObject.netVariables == null)
-                netObject.netVariables = new NetVariables();
+                netObject.netVariables = new NetVariables(data.uniqueId);
 
             Type myObjectType = data.GetType();
 
@@ -649,7 +664,7 @@ public class NetManager : MonoBehaviour
     void OnApplicationQuit()
     {
         IdData data = new IdData();
-        data.id = Net.myId;
+        data.id = socket.SocketID;
 
         if(socket != null)
             socket.Emit("quit", JsonUtility.ToJson(data));
