@@ -26,9 +26,10 @@ public class NetManager : MonoBehaviour
     //a game menu script for character selection and such
     //if not specified connects directly
     public GameMenu gameMenu;
+	public GameObject gameplayCanvas;
 
-    //names of prefabs in the resource folder (optional)
-    public string MyAvatarPrefabName ="";
+	//names of prefabs in the resource folder (optional)
+	public string MyAvatarPrefabName ="";
     public string OtherAvatarPrefabName = "";
     
     //reference to my avatar (if any)
@@ -206,6 +207,10 @@ public class NetManager : MonoBehaviour
             {
                 gameMenu.CloseMenu();
             }
+			// if there's a gameplay canvas, enable it
+			if (gameplayCanvas) {
+				gameplayCanvas.SetActive(true);
+			}
 
             if (MyAvatarPrefabName != "")
             {

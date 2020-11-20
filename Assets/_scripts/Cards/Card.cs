@@ -5,25 +5,42 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour {
 	// Fields
-	public CardInfo cardInfo;
+	public Button button;
 	public Text title;
 	public Text description;
 
 	public regionView regionV;
 
+	private CardInfo cardInfo;
 
-	// Methods
+
+	// init
 	private void Awake() {
-		//Debug.Log(cardInfo.title);
-		Debug.Log(this);
+		setCardInfo(cardInfo);
+	}
+
+
+	// Initializes the card to use a particular CardInfo
+	public void setCardInfo(CardInfo newCardInfo) {
+		cardInfo = newCardInfo;
+		if (cardInfo == null) {
+			title.text = "";
+			description.text = "waiting for next card...";
+			button.interactable = false;
+			return;
+		}
+		button.interactable = true;
 		title.text = cardInfo.title;
 		description.text = cardInfo.description;
 	}
 
 
+	// Called when this is clicked
 	public void whenClicked() {
+		if (cardInfo == null) return;
+
 		if (!regionV.currentRegion) {
-			Debug.LogError("no current region");
+			Debug.Log("no current region");
 			return;
 		}
 		for (int i=0; i < cardInfo.impacts.Count; i++) {
@@ -31,5 +48,12 @@ public class Card : MonoBehaviour {
 			regionV.currentRegion.netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
 		}
 		Net.SetVariables(regionV.currentRegion.netVariables.uniqueId, regionV.currentRegion.netVariables);
+		setCardInfo(null);
+	}
+
+	
+	// Returns true iff cardInfo is null
+	public bool is_waiting_for_card() {
+		return cardInfo == null;
 	}
 }
