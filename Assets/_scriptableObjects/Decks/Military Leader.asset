@@ -15,9 +15,22 @@ MonoBehaviour:
   Title: Military Leader
   cardInfos:
   - {fileID: 11400000, guid: b740326629231ce48a422bdc344df5c1, type: 2}
-  - {fileID: 11400000, guid: 7c459aeaa62722642917525ee65b5dce, type: 2}
   - {fileID: 11400000, guid: b740326629231ce48a422bdc344df5c1, type: 2}
   - {fileID: 11400000, guid: b740326629231ce48a422bdc344df5c1, type: 2}
   - {fileID: 11400000, guid: b740326629231ce48a422bdc344df5c1, type: 2}
-  - {fileID: 11400000, guid: 7c459aeaa62722642917525ee65b5dce, type: 2}
-  - {fileID: 11400000, guid: 7c459aeaa62722642917525ee65b5dce, type: 2}
+  - {fileID: 11400000, guid: b740326629231ce48a422bdc344df5c1, type: 2}
+  - {fileID: 11400000, guid: 998c11653319bde4597f9d56b46034d1, type: 2}
+  - {fileID: 11400000, guid: 0ee8244c4676c4841ac4c8fe254a2713, type: 2}
+  - {fileID: 11400000, guid: 0ee8244c4676c4841ac4c8fe254a2713, type: 2}
+  - {fileID: 11400000, guid: 0ee8244c4676c4841ac4c8fe254a2713, type: 2}
+  - {fileID: 11400000, guid: 0ee8244c4676c4841ac4c8fe254a2713, type: 2}
+  - {fileID: 11400000, guid: 0ee8244c4676c4841ac4c8fe254a2713, type: 2}
+  - {fileID: 11400000, guid: 0ee8244c4676c4841ac4c8fe254a2713, type: 2}
+  - {fileID: 11400000, guid: 515b52e0ffaa32f4f9dc8564182a96e1, type: 2}
+  - {fileID: 11400000, guid: 515b52e0ffaa32f4f9dc8564182a96e1, type: 2}
+  - {fileID: 11400000, guid: 515b52e0ffaa32f4f9dc8564182a96e1, type: 2}
+  - {fileID: 11400000, guid: 515b52e0ffaa32f4f9dc8564182a96e1, type: 2}
+  - {fileID: 11400000, guid: 515b52e0ffaa32f4f9dc8564182a96e1, type: 2}
+  - {fileID: 11400000, guid: 515b52e0ffaa32f4f9dc8564182a96e1, type: 2}
+  - {fileID: 11400000, guid: 0ee8244c4676c4841ac4c8fe254a2713, type: 2}
+  - {fileID: 11400000, guid: 0ee8244c4676c4841ac4c8fe254a2713, type: 2}
