@@ -1,39 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 
 public class DisplayQuality : MonoBehaviour {
 	// Public fields
-	public string regionName;
+	//public string regionName;
+	public regionView regionV;
 	public Quality quality;
 
 
 	// Private vars
-	private Text text;
-	private NetObject regionNO;
+	private TextMeshProUGUI TMP;
 
 
 	// Init
 	private void Awake() {
-		text = GetComponent<Text>();
+		TMP = GetComponent<TextMeshProUGUI>();
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if (regionNO == null) {
-			GameObject regionGO = GameObject.Find(regionName);
-			if (regionGO) {
-				regionNO = regionGO.GetComponentInParent<NetObject>();
-			}
-		}
-		
+		NetObject regionNO = regionV.currentRegion;
 		if (regionNO == null || regionNO.netVariables == null) return;
 
 		string qName = System.Enum.GetName(typeof(Quality), quality);
 		int value = regionNO.netVariables.qualityStates.states[(int)quality];
 
-		text.text = qName + " = " + value;
+		TMP.text = qName + " = " + value;
 	}
 }
