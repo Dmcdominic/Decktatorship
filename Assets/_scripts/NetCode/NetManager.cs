@@ -15,11 +15,6 @@ using UnityEditor;
 public class NetManager : MonoBehaviour
 {
 
-    //for quick deployment I have different presets for Glitch and Heroku
-    public bool GLITCH = false;
-    public bool HEROKU = false;
-    //if both are false go with the values in SocketIOController
-
     //the socket or, the pipe connecting this client to the server
     public SocketIOController socket;
 
@@ -45,20 +40,6 @@ public class NetManager : MonoBehaviour
 
         socket = GetComponent<SocketIOController>();
         gameMenu = GetComponent<GameMenu>();
-
-        //to switch quickly between local and online you can override the settings here
-        if (GLITCH)
-        {
-            socket.settings.url = "yourglitchdomain.glitch.me";
-            socket.settings.port = 0 ;
-            socket.settings.sslEnabled = true;
-        }
-        else if (HEROKU)
-        {
-            socket.settings.url = "yourherokudomain.herokuapp.com";
-            socket.settings.port = 5000;
-            socket.settings.sslEnabled = true;
-        }
 
         //connect to the server
         socket.Connect();

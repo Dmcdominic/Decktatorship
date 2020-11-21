@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b99af7d8ee7d2934db9cb7d210d07879, type: 3}
-  m_Name: testCard
+  m_Script: {fileID: 11500000, guid: 8b61d9fcf8ae7634eb691808f3b6b67c, type: 3}
+  m_Name: Test Playable 1
   m_EditorClassIdentifier: 
-  title: Test Card
-  description: This does something idk
-  sprite: {fileID: 0}
+  title: PLAYABLE TITLE 1
+  description: Hey look! You drew a PLAYABLE TITLE 1!
   impacts:
   - decrease: 0
-    amount: 2
-    quality: 1
-    locality: 0
-  - decrease: 0
-    amount: 0
+    amount: 1
     quality: 0
+    locality: 0
+  - decrease: 1
+    amount: 0
+    quality: 3
     locality: 0

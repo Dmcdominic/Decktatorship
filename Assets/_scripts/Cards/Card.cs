@@ -37,14 +37,22 @@ public class Card : MonoBehaviour {
 
 	// Called when this is clicked
 	public void whenClicked() {
-		if (cardInfo == null) return;
-
 		if (!regionV.currentRegion) {
 			Debug.Log("no current region");
 			return;
 		}
-		for (int i=0; i < cardInfo.impacts.Count; i++) {
-			Impact impact = cardInfo.impacts[i];
+
+		if (cardInfo == null) return;
+		PlayableCardInfo pCardInfo = cardInfo as PlayableCardInfo;
+
+		if (!pCardInfo) {
+			Debug.LogError("A CardInfo that's not a PlayableCardInfo ended up in your hand somehow...");
+			setCardInfo(null);
+			return;
+		}
+
+		for (int i=0; i < pCardInfo.impacts.Count; i++) {
+			Impact impact = pCardInfo.impacts[i];
 			regionV.currentRegion.netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
 		}
 		Net.SetVariables(regionV.currentRegion.netVariables.uniqueId, regionV.currentRegion.netVariables);
