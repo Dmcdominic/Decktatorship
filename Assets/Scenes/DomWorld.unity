@@ -1098,8 +1098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee28affb8c634f43aee6518ddbdceb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GLITCH: 0
-  HEROKU: 0
   socket: {fileID: 0}
   gameMenu: {fileID: 0}
   gameplayCanvas: {fileID: 179917498}
@@ -1135,7 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
-    url_type: 0
+    url_type: 1
     url: oligarchy-server.glitch.me/
     port: 0
     sslEnabled: 1

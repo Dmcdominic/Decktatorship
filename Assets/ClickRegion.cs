@@ -11,6 +11,8 @@ public class ClickRegion : MonoBehaviour {
 	private MoveCameraToArea cameraMan; 
 	public Transform cameraPos;
 	private bool goToRegion = true;
+
+
 	// Start is called before the first frame update
 	void Start() {
 		thisNetObj = GetComponentInParent<NetObject>();
@@ -20,7 +22,7 @@ public class ClickRegion : MonoBehaviour {
 	private void OnMouseDown() {
 		if (EventSystem.current.IsPointerOverGameObject())
 			return;
-		Debug.Log("Region " + gameObject.name + " clicked");
+		//Debug.Log("Region " + gameObject.name + " clicked");
 		if (goToRegion)
         {
 			cameraMan.currentView = cameraPos;
@@ -32,19 +34,5 @@ public class ClickRegion : MonoBehaviour {
 			goToRegion = true;
 		}
 		regionV.currentRegion = thisNetObj;
-
-		//NetVariables netVariables = thisNetObj.netVariables;
-		//if (netVariables == null) {
-		//	Debug.LogError("netVariables is null on a region...");
-		//}
-		//netVariables.qualityStates.states[(int)Quality.HAPPINESS] += 2;
-		//Debug.Log(thisNetObj);
-		////thisNetObj.
-		//Net.SetVariables(netVariables.uniqueId, netVariables);
-	}
-
-	// Update is called once per frame
-	void Update() {
-
 	}
 }

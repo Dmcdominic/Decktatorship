@@ -6,8 +6,9 @@ using UnitySocketIO.Events;
 
 namespace UnitySocketIO {
     public class SocketIOController : MonoBehaviour {
-        
-        public SocketIOSettings settings;
+
+		[Header("WARNING - Settings get overwritten on build")]
+		public SocketIOSettings settings;
 
         BaseSocketIO socketIO;
 
@@ -20,9 +21,27 @@ namespace UnitySocketIO {
             else {
                 socketIO = gameObject.AddComponent<NativeSocketIO>();
             }
-            //print("AWAKE");
-            //socketIO.Init(settings);
 
+#if UNITY_EDITOR
+            if (settings.url_type == SocketIOSettings.URL_TYPE.GLITCH) {
+                settings.url = "oligarchy-server.glitch.me/";
+                settings.port = 0;
+                settings.sslEnabled = true;
+            } else if (settings.url_type == SocketIOSettings.URL_TYPE.LOCAL) {
+                settings.url = "localhost";
+                settings.port = 3000;
+                settings.sslEnabled = false;
+            }
+#elif UNITY_WEBGL
+            Debug.Log("UNITY_WEBGL");
+			settings.url = "localhost";
+			settings.port = 3000;
+			settings.sslEnabled = false;
+#elif UNITY_STANDALONE
+			settings.url = "oligarchy-server.glitch.me/";
+			settings.port = 0;
+			settings.sslEnabled = true;
+#else
 			if (settings.url_type == SocketIOSettings.URL_TYPE.GLITCH) {
 				settings.url = "oligarchy-server.glitch.me/";
 				settings.port = 0;
@@ -32,9 +51,10 @@ namespace UnitySocketIO {
 				settings.port = 3000;
 				settings.sslEnabled = false;
 			}
+#endif
         }
 
-        public void Connect() {
+		public void Connect() {
             print("CONNECTING");
             socketIO.Init(settings);
             socketIO.Connect();

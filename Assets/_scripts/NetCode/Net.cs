@@ -37,24 +37,24 @@ public static class Net
     //global shortcuts and overloads
     //an overload is simply a version of a function with different parameters
     
-    public static void Instantiate(string prefabName, int type)
+    public static void Instantiate(string prefabName, int type, NetVariables netVariables = null)
     {
-        manager.NetInstantiate(prefabName, type, Vector3.zero, Quaternion.identity, Vector3.one);
+        manager.NetInstantiate(prefabName, type, Vector3.zero, Quaternion.identity, Vector3.one, netVariables);
     }
 
-    public static void Instantiate(string prefabName, int type, Vector3 position)
+    public static void Instantiate(string prefabName, int type, Vector3 position, NetVariables netVariables = null)
     {
-        manager.NetInstantiate(prefabName, type, position, Quaternion.identity, Vector3.one);
+        manager.NetInstantiate(prefabName, type, position, Quaternion.identity, Vector3.one, netVariables);
     }
 
-    public static void Instantiate(string prefabName, int type, Vector3 position, Quaternion rotation)
+    public static void Instantiate(string prefabName, int type, Vector3 position, Quaternion rotation, NetVariables netVariables = null)
     {
-        manager.NetInstantiate(prefabName, type, position, rotation, Vector3.one);
+        manager.NetInstantiate(prefabName, type, position, rotation, Vector3.one, netVariables);
     }
 
-    public static void Instantiate(string prefabName, int type, Vector3 position, Quaternion rotation, Vector3 localScale)
+    public static void Instantiate(string prefabName, int type, Vector3 position, Quaternion rotation, Vector3 localScale, NetVariables netVariables = null)
     {
-        manager.NetInstantiate(prefabName, type, position, rotation, localScale);
+        manager.NetInstantiate(prefabName, type, position, rotation, localScale, netVariables);
     }
 
     public static void Destroy(string id)
@@ -70,6 +70,10 @@ public static class Net
     public static void UpdateTransform(GameObject gameObject)
     {
         manager.UpdateTransform(gameObject);
+    }
+
+    public static void IncrVariables(string uniqueId, NetVariables netVars) {
+        manager.IncrVariables(uniqueId, netVars);
     }
 
     public static void SetVariables(string uniqueId, NetVariables netVars)

@@ -35,7 +35,7 @@ public class NetObject : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb != null) defaultKinematic = rb.isKinematic;
 
-        print("Netobject starts" + transform.position);
+        //print("Netobject starts" + transform.position);
 
         update = 0;
         

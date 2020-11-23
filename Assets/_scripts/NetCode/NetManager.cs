@@ -277,11 +277,10 @@ public class NetManager : MonoBehaviour
 			// TODO - do this only when the server tells us we need fresh stuff?
 			//    OR - initialize them as PERSISTENT and have a reset button?
 			if (Net.authority) {
-				Debug.Log("INSTANTIATING the region wrappers!");
-				Net.Instantiate("redWrapper", Net.SHARED, new Vector3());
-				Net.Instantiate("purpleWrapper", Net.SHARED, new Vector3());
-				Net.Instantiate("greenWrapper", Net.SHARED, new Vector3());
-				Net.Instantiate("blueWrapper", Net.SHARED, new Vector3());
+				Net.Instantiate("redWrapper", Net.SHARED, new Vector3(), new NetVariables("TBD", "red"));
+				Net.Instantiate("purpleWrapper", Net.SHARED, new Vector3(), new NetVariables("TBD", "purple"));
+				Net.Instantiate("greenWrapper", Net.SHARED, new Vector3(), new NetVariables("TBD", "green"));
+				Net.Instantiate("blueWrapper", Net.SHARED, new Vector3(), new NetVariables("TBD", "blue"));
 			}
 
 
@@ -316,7 +315,7 @@ public class NetManager : MonoBehaviour
     
 
     //Instantiation for networked objects
-    public void NetInstantiate(string prefabName, int type, Vector3 position, Quaternion rotation, Vector3 localScale)
+    public void NetInstantiate(string prefabName, int type, Vector3 position, Quaternion rotation, Vector3 localScale, NetVariables netVariables)
     {
         //tell the server to tell the other clients to do the same
         InstantiationData data = new InstantiationData();
@@ -325,7 +324,7 @@ public class NetManager : MonoBehaviour
         data.localScale = localScale;
         data.rotation = rotation;
         data.type = type;
-
+        data.netVariables = netVariables;
         
         socket.Emit("instantiate", JsonUtility.ToJson(data));
     }
@@ -364,7 +363,8 @@ public class NetManager : MonoBehaviour
         netObj.type = data.type;
         netObj.owner = data.owner;
         netObj.prefabName = data.prefabName;
-		netObj.netVariables = new NetVariables(data.uniqueId, netObj.prefabName);
+        netObj.netVariables = data.netVariables;
+		//netObj.netVariables = new NetVariables(data.uniqueId, netObj.prefabName);
 
         Net.objects[data.uniqueId] = netObj;
 
@@ -568,21 +568,28 @@ public class NetManager : MonoBehaviour
         }
     }
 
-    
+    //send a variable increment - ONLY INCREMENTS qualityStates
+    public void IncrVariables(string uniqueId, NetVariables vars) {
+        vars.uniqueId = uniqueId;
+
+        //Debug.Log("emitting incrVariables");
+        socket.Emit("incrVariables", JsonUtility.ToJson(vars));
+    }
+
     //send a variable change
     public void SetVariables(string uniqueId, NetVariables vars)
     {
         vars.uniqueId = uniqueId;
 
-		Debug.Log("emitting setVariables");
+		//Debug.Log("emitting setVariables");
 		socket.Emit("setVariables", JsonUtility.ToJson(vars));   
     }
 
     //from the server: a NetVariable changed
     public void OnSetVariables(SocketIOEvent e)
     {
-		Debug.Log("OnSetVariables");
-		Debug.Log(e.data);
+		//Debug.Log("OnSetVariables");
+		//Debug.Log(e.data);
 
         NetVariables data = JsonUtility.FromJson<NetVariables>(e.data.ToString());
         

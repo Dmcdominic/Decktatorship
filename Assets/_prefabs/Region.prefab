@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regionV: {fileID: 11400000, guid: 7939798d72e603b43ba0978bfce21fd0, type: 2}
-  cameraThing: {fileID: 0}
   cameraPos: {fileID: 5662291497624303051}
 --- !u!1 &8719382920367243468
 GameObject:

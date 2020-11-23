@@ -46,21 +46,26 @@ public class Card : MonoBehaviour {
 		PlayableCardInfo pCardInfo = cardInfo as PlayableCardInfo;
 
 		if (!pCardInfo) {
-			Debug.LogError("A CardInfo that's not a PlayableCardInfo ended up in your hand somehow...");
+			Debug.LogWarning("A CardInfo that's not a PlayableCardInfo ended up in your hand somehow... (Dom might not have implemented events yet)");
 			setCardInfo(null);
 			return;
 		}
 
+		NetVariables netVariables = regionV.currentRegion.netVariables;
+		NetVariables incrVariables = NetVariables.makeIncrCopy(netVariables);
+
 		for (int i=0; i < pCardInfo.impacts.Count; i++) {
 			Impact impact = pCardInfo.impacts[i];
-			regionV.currentRegion.netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
+			netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
+			incrVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
 		}
-		Net.SetVariables(regionV.currentRegion.netVariables.uniqueId, regionV.currentRegion.netVariables);
+		//Net.SetVariables(netVariables.uniqueId, netVariables);
+		Net.IncrVariables(netVariables.uniqueId, incrVariables);
 		setCardInfo(null);
 	}
 
 	
-	// Returns true iff cardInfo is null
+	// Returns true iff this card slot is empty
 	public bool is_waiting_for_card() {
 		return cardInfo == null;
 	}
