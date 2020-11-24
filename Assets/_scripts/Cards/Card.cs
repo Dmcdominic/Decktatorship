@@ -8,11 +8,12 @@ public class Card : MonoBehaviour {
 	public Button button;
 	public Text title;
 	public Text description;
-
+	public Image icon;
+	public Image backgroundImage;
 	public regionView regionV;
 
 	private CardInfo cardInfo;
-
+	private CardIcons cardIcons;
 
 	// init
 	private void Awake() {
@@ -29,9 +30,16 @@ public class Card : MonoBehaviour {
 			button.interactable = false;
 			return;
 		}
+/*		if (cardIcons == null)
+        {
+			Debug.Log("Panic! This card doesn't have a CARD_ICONS scriptable object assigned to it. Please assign one ");
+			return;
+        }*/
 		button.interactable = true;
 		title.text = cardInfo.title;
 		description.text = cardInfo.description;
+		backgroundImage.sprite = cardInfo.background;
+
 	}
 
 
