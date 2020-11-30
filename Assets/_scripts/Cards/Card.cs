@@ -39,7 +39,7 @@ public class Card : MonoBehaviour {
 		title.text = cardInfo.title;
 		description.text = cardInfo.description;
 		backgroundImage.sprite = cardInfo.background;
-
+		icon.sprite = cardIcons.IconSprites[(int)CardInfo.Effects.Effect1];
 	}
 
 
