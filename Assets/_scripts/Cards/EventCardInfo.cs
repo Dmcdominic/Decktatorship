@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 // Info for a specific event
+[System.Serializable]
 [CreateAssetMenu(menuName = "custom/EventCardInfo")]
 public class EventCardInfo : CardInfo {
 	// Fields
@@ -18,7 +19,7 @@ public struct EventOption {
 	public string title;
 	public string description;
 
-	public CardInfo cardGained;
+	public PlayableCardInfo cardGained;
 
 	public List<Impact> impacts;
 }

@@ -12,22 +12,19 @@ public class Card : MonoBehaviour {
 	public Image backgroundImage;
 	public regionView regionV;
 
-	private CardInfo cardInfo;
+	private PlayableCardInfo playableCardInfo = null;
 	private CardIcons cardIcons;
-
-	// init
-	private void Awake() {
-		setCardInfo(cardInfo);
-	}
 
 
 	// Initializes the card to use a particular CardInfo
-	public void setCardInfo(CardInfo newCardInfo) {
-		cardInfo = newCardInfo;
-		if (cardInfo == null) {
+	public void setCardInfo(PlayableCardInfo newCardInfo, bool interactable = true) {
+		//if (!Net.connected) return;
+		playableCardInfo = newCardInfo;
+		if (playableCardInfo == null) {
+			button.interactable = false;
 			title.text = "";
 			description.text = "waiting for next card...";
-			button.interactable = false;
+			backgroundImage.sprite = null;
 			return;
 		}
 /*		if (cardIcons == null)
@@ -35,11 +32,11 @@ public class Card : MonoBehaviour {
 			Debug.Log("Panic! This card doesn't have a CARD_ICONS scriptable object assigned to it. Please assign one ");
 			return;
         }*/
-		button.interactable = true;
-		title.text = cardInfo.title;
-		description.text = cardInfo.description;
-		backgroundImage.sprite = cardInfo.background;
-		icon.sprite = cardIcons.IconSprites[(int)CardInfo.Effects.Effect1];
+		button.interactable = interactable;
+		title.text = playableCardInfo.title;
+		description.text = playableCardInfo.description;
+		backgroundImage.sprite = playableCardInfo.background;
+		//icon.sprite = cardIcons.IconSprites[(int)playableCardInfo.impacts[0].quality];
 	}
 
 
@@ -50,31 +47,56 @@ public class Card : MonoBehaviour {
 			return;
 		}
 
-		if (cardInfo == null) return;
-		PlayableCardInfo pCardInfo = cardInfo as PlayableCardInfo;
-
-		if (!pCardInfo) {
-			Debug.LogWarning("A CardInfo that's not a PlayableCardInfo ended up in your hand somehow... (Dom might not have implemented events yet)");
-			setCardInfo(null);
-			return;
-		}
-
-		NetVariables netVariables = regionV.currentRegion.netVariables;
-		NetVariables incrVariables = NetVariables.makeIncrCopy(netVariables);
-
-		for (int i=0; i < pCardInfo.impacts.Count; i++) {
-			Impact impact = pCardInfo.impacts[i];
-			netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
-			incrVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
-		}
-		//Net.SetVariables(netVariables.uniqueId, netVariables);
-		Net.IncrVariables(netVariables.uniqueId, incrVariables);
+		if (playableCardInfo == null) return;
+		apply_impact_list(playableCardInfo.impacts, regionV);
 		setCardInfo(null);
 	}
 
 	
 	// Returns true iff this card slot is empty
 	public bool is_waiting_for_card() {
-		return cardInfo == null;
+		return playableCardInfo == null;
+	}
+
+
+	// Apply an impact list to all regions
+	public static void apply_impact_list(List<Impact> impacts, regionView regionV) {
+		// Create a NetVariables object for each region to track increments
+		Dictionary<string, NetVariables> incrVariables = new Dictionary<string, NetVariables>(); // Key = uniqueID
+		foreach (NetObject netObj in ClickRegion.regionNetObs.Values) {
+			incrVariables.Add(netObj.netVariables.uniqueId, NetVariables.makeIncrCopy(netObj.netVariables));
+		}
+
+		// Apply each impact to incrVariables, and to the local NetVariables
+		for (int i = 0; i < impacts.Count; i++) {
+			Impact impact = impacts[i];
+			if (impact.locality == Locality.LOCAL) {
+				if (regionV == null) throw new System.Exception("LOCAL locality used without a regionView");
+				string uniqueId = regionV.currentRegion.netVariables.uniqueId;
+				incrVariables[uniqueId].qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
+				ClickRegion.regionNetObs[uniqueId].netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
+			} else if (impact.locality == Locality.ADJACENT) {
+				if (regionV == null) throw new System.Exception("ADJACENT locality used without a regionView");
+				// TODO
+				throw new System.Exception("ADJACENT locality of impacts not yet implemented");
+			} else if (impact.locality == Locality.GLOBAL) {
+				foreach (NetVariables netVars in incrVariables.Values) {
+					netVars.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
+				}
+				foreach (NetObject netObj in ClickRegion.regionNetObs.Values) {
+					netObj.netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
+				}
+			}
+		}
+
+		// Send each inrVariables (as long as at least one state has been changed)
+		foreach (NetVariables netVars in incrVariables.Values) {
+			foreach (int state in netVars.qualityStates.states) {
+				if (state != 0) {
+					Net.IncrVariables(netVars.uniqueId, netVars);
+					break;
+				}
+			}
+		}
 	}
 }

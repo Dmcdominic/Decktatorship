@@ -33,8 +33,17 @@ public class NetManager : MonoBehaviour
     public Vector3 spawnPoint = new Vector3(11.19f, 0, 29.6f);
     public float spawnRadius = 2;
 
-    
-    void Start()
+
+    // early init
+	private void Awake() {
+        // if there's a gameplay canvas, disable it
+        if (gameplayCanvas) {
+            gameplayCanvas.SetActive(false);
+        }
+    }
+
+
+	void Start()
 	{
         Application.targetFrameRate = 60;
 
@@ -74,7 +83,10 @@ public class NetManager : MonoBehaviour
 
         //a net object changed type TEMPORARY, PRIVATE, SHARED... 
         socket.On("changeType", OnChangeType);
-        
+
+        //net variables changed
+        socket.On("cardToBeShuffled", OnCardToBeShuffled);
+
         //net variables changed
         socket.On("setVariables", OnSetVariables);
 
@@ -345,12 +357,13 @@ public class NetManager : MonoBehaviour
         if(o == null)
            o = Instantiate(Resources.Load(data.prefabName) as GameObject);
 
-        
-        o.transform.position = data.position;
-        o.transform.localScale = data.localScale;
-        o.transform.rotation = data.rotation;
         o.name = data.uniqueId;
-        
+
+        if (data.netVariables.maintainTransform) {
+            o.transform.position = data.position;
+            o.transform.localScale = data.localScale;
+            o.transform.rotation = data.rotation;
+        }
 
         //fetch or add the netcomponent object
         NetObject netObj = o.GetComponent<NetObject>();
@@ -566,6 +579,26 @@ public class NetManager : MonoBehaviour
             else
                 print("Warning: there is no PUBLIC function named " + data.functionName + " on object " + data.objectName + " and component " + data.componentName);
         }
+    }
+
+    //send a card to be shuffled into everyone's decks
+    public void SendCardToBeShuffled(string cardTitle) {
+        NetVariables vars = new NetVariables("N/A", "N/A", null, false, false);
+        vars.cardToShuffleTitle = cardTitle;
+        socket.Emit("cardToBeShuffled", JsonUtility.ToJson(vars));
+    }
+
+    //send a card to be shuffled into everyone's decks
+    public void OnCardToBeShuffled(SocketIOEvent e) {
+        //Debug.Log("OnCardToBeShuffled");
+        Dealer dealer = FindObjectOfType<Dealer>();
+        if (dealer == null) {
+            Debug.LogError("Received OnCardToBeShuffled but couldn't find a Dealer");
+            return;
+        }
+        string cardTitle = e.data;
+        cardTitle = cardTitle.Replace("\"", "");
+        dealer.shuffleIntoDeck(cardTitle);
     }
 
     //send a variable increment - ONLY INCREMENTS qualityStates

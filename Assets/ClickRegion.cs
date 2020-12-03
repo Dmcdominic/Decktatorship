@@ -12,10 +12,13 @@ public class ClickRegion : MonoBehaviour {
 	public Transform cameraPos;
 	private bool goToRegion = true;
 
+	public static Dictionary<string, NetObject> regionNetObs = new Dictionary<string, NetObject>(); // Key = uniqueID
+
 
 	// Start is called before the first frame update
 	void Start() {
 		thisNetObj = GetComponentInParent<NetObject>();
+		regionNetObs.Add(thisNetObj.netVariables.uniqueId, thisNetObj);
 		cameraMan = Camera.main.GetComponent<MoveCameraToArea>();
 	}
 

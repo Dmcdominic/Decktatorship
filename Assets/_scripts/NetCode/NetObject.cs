@@ -65,7 +65,7 @@ public class NetObject : MonoBehaviour
                     transform.hasChanged = false;
 
                     //is this object owned by this client?
-                    if (owner == Net.myId)
+                    if (ownedByThisClient() && netVariables.maintainTransform)
                     {
                         //update all the others
                         Net.UpdateTransform(gameObject);
@@ -82,7 +82,7 @@ public class NetObject : MonoBehaviour
         }
 
         //is this object owned by this client?
-        if (owner != Net.myId)
+        if (!ownedByThisClient())
         {
             //print(transform.position + " >>> " + targetPosition);
             //print("Dista"+Vector3.Distance(transform.position, targetPosition));
@@ -131,6 +131,13 @@ public class NetObject : MonoBehaviour
        
         }
         
+    }
+
+
+    // Returns true iff this NetObject is owned by this client
+    public bool ownedByThisClient() {
+        return Net.myId == owner;
+
     }
 }
 

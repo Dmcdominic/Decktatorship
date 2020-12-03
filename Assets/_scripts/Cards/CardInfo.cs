@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 // Info for a specific card (extended by PlayableCardInfo and EventCardInfo)
+[System.Serializable]
 public abstract class CardInfo : ScriptableObject {
 	// Fields
 	public string title;

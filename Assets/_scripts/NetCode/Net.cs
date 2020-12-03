@@ -72,6 +72,10 @@ public static class Net
         manager.UpdateTransform(gameObject);
     }
 
+    public static void SendCardToBeShuffled(string cardTitle) {
+        manager.SendCardToBeShuffled(cardTitle);
+    }
+
     public static void IncrVariables(string uniqueId, NetVariables netVars) {
         manager.IncrVariables(uniqueId, netVars);
     }

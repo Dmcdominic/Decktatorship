@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6595c446bfb44fe46b25fb8864a442b7, type: 3}
+  m_Name: CardRegistry
+  m_EditorClassIdentifier: 
+  Title: CARD REGISTRY
+  cardInfos:
+  - {fileID: 11400000, guid: 87100d4b4ee3fb446950730b538aeea6, type: 2}
+  - {fileID: 11400000, guid: 10b01ff583ba58240b1cebe125a13b05, type: 2}
+  - {fileID: 11400000, guid: 7cc20cae37f8aeb46a7f1dde70e04289, type: 2}

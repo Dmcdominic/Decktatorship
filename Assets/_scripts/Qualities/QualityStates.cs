@@ -28,6 +28,7 @@ public struct Impact {
 	public int getScaledAmount() {
 		int baseAmt = 1;
 		int absAmt = baseAmt * (1 + (int)amount);
-		return decrease ? -absAmt : absAmt;
+		int finalAmt = decrease ? -absAmt : absAmt;
+		return finalAmt;
 	}
 }
