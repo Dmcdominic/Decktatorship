@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 // enums
-public enum Quality { LIBERTY, HAPPINESS, MONEY, MILITARY }
+public enum Quality { HEALTH, HAPPINESS, MONEY, MILITARY }
 public enum Amount { LOW, MEDIUM, HIGH }
 public enum Locality { LOCAL, ADJACENT, GLOBAL }
 

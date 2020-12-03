@@ -37,21 +37,21 @@ public class EventPanel : MonoBehaviour {
 		GetComponent<RectTransform>().SetBottom(0);
 
 		if (thisNetObj == null) thisNetObj = GetComponentInParent<NetObject>();
-		setEventInfo(thisNetObj.netVariables.eventInfo, thisNetObj.ownedByThisClient());
+		setEventInfo(thisNetObj.netVariables.eventTitle, thisNetObj.ownedByThisClient());
 	}
 
 
 	// Initializes the card to use a particular CardInfo
-	public void setEventInfo(EventCardInfo newCardInfo, bool local_authority) {
+	public void setEventInfo(string eventTitle, bool local_authority) {
 		foreach (CardInfo cardInfo in cardRegistry.cardInfos) {
 			if (!cardInfo) continue;
-			if (cardInfo.title.Equals(newCardInfo.title)) {
+			if (cardInfo.title.Equals(eventTitle)) {
 				eventCardInfo = cardInfo as EventCardInfo;
 				break;
 			}
 		}
 		if (eventCardInfo == null) {
-			throw new System.Exception("No card with same title as newCardInfo: " + newCardInfo.title + " found in CardRegistry");
+			throw new System.Exception("No card with eventTitle: " + eventTitle + " found in CardRegistry");
 		}
 
 		title.text = eventCardInfo.title;
@@ -59,7 +59,7 @@ public class EventPanel : MonoBehaviour {
 		//backgroundImage.sprite = cardInfo.background;
 		//icon.sprite = cardIcons.IconSprites[(int)CardInfo.Effects.Effect1];
 
-		eventOptionDisplay1.setEventOption(newCardInfo.eventOption1, local_authority, this);
-		eventOptionDisplay2.setEventOption(newCardInfo.eventOption2, local_authority, this);
+		eventOptionDisplay1.setEventOption(eventCardInfo.eventOption1, local_authority, this);
+		eventOptionDisplay2.setEventOption(eventCardInfo.eventOption2, local_authority, this);
 	}
 }

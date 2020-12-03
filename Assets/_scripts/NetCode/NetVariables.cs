@@ -17,6 +17,7 @@ public class NetVariables {
 
 	// event variables
 	public EventCardInfo eventInfo;
+	public string eventTitle;
 
 	// Card to shuffle title
 	public string cardToShuffleTitle;
@@ -31,6 +32,7 @@ public class NetVariables {
 			qualityStates.states[i] = incrCopy ? 0 : 50; // Initial value
 		}
 		eventInfo = _eventInfo;
+		if (eventInfo) eventTitle = eventInfo.title;
 		maintainTransform = _maintainTransform;
 	}
 
