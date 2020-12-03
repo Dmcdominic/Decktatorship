@@ -63,7 +63,7 @@ public class Card : MonoBehaviour {
 	public static void apply_impact_list(List<Impact> impacts, regionView regionV) {
 		// Create a NetVariables object for each region to track increments
 		Dictionary<string, NetVariables> incrVariables = new Dictionary<string, NetVariables>(); // Key = uniqueID
-		foreach (NetObject netObj in ClickRegion.regionNetObs.Values) {
+		foreach (NetObject netObj in qualityDecay.regionNetObs.Values) {
 			incrVariables.Add(netObj.netVariables.uniqueId, NetVariables.makeIncrCopy(netObj.netVariables));
 		}
 
@@ -74,7 +74,7 @@ public class Card : MonoBehaviour {
 				if (regionV == null) throw new System.Exception("LOCAL locality used without a regionView");
 				string uniqueId = regionV.currentRegion.netVariables.uniqueId;
 				incrVariables[uniqueId].qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
-				ClickRegion.regionNetObs[uniqueId].netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
+				qualityDecay.regionNetObs[uniqueId].netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
 			} else if (impact.locality == Locality.ADJACENT) {
 				if (regionV == null) throw new System.Exception("ADJACENT locality used without a regionView");
 				// TODO
@@ -83,7 +83,7 @@ public class Card : MonoBehaviour {
 				foreach (NetVariables netVars in incrVariables.Values) {
 					netVars.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
 				}
-				foreach (NetObject netObj in ClickRegion.regionNetObs.Values) {
+				foreach (NetObject netObj in qualityDecay.regionNetObs.Values) {
 					netObj.netVariables.qualityStates.states[(int)impact.quality] += impact.getScaledAmount();
 				}
 			}

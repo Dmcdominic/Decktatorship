@@ -13,7 +13,8 @@ public enum Locality { LOCAL, ADJACENT, GLOBAL }
 [System.Serializable]
 public struct QualityStates {
 	public int[] states; // Indexed by the Quality enum
-	// length MUST be: System.Enum.GetValues(typeof(Quality)).Length
+	// length MUST be: QualityStates.NUM_QUALITIES
+	public static int NUM_QUALITIES = System.Enum.GetValues(typeof(Quality)).Length;
 }
 
 

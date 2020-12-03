@@ -27,7 +27,7 @@ public class NetVariables {
 	public NetVariables(string _uniqueId, string _regionName, EventCardInfo _eventInfo = null, bool incrCopy = false, bool _maintainTransform = true) {
 		uniqueId = _uniqueId;
 		regionName = _regionName.Replace("Wrapper", "").ToUpper();
-		qualityStates.states = new int[System.Enum.GetValues(typeof(Quality)).Length];
+		qualityStates.states = new int[QualityStates.NUM_QUALITIES];
 		for (int i=0; i < qualityStates.states.Length; i++) {
 			qualityStates.states[i] = incrCopy ? 0 : 50; // Initial value
 		}

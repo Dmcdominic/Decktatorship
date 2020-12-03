@@ -103,8 +103,6 @@ public class Dealer : MonoBehaviour {
 	// Adds a new card into the deck
 	public void shuffleIntoDeck(string cardTitle) {
 		foreach (CardInfo cardInfo in cardRegistry.cardInfos) {
-			Debug.Log("cardInfo.title: " + cardInfo.title);
-			Debug.Log("cardTitle: " + cardTitle);
 			if (cardInfo.title.Equals(cardTitle)) {
 				deck.Add(cardInfo);
 				return;

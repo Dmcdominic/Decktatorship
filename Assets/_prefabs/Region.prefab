@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4038482652600351324}
   - component: {fileID: 3443572779384874715}
   - component: {fileID: 3443572779384874714}
+  - component: {fileID: 2104028863189666276}
   m_Layer: 0
   m_Name: Region
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regionV: {fileID: 11400000, guid: 7939798d72e603b43ba0978bfce21fd0, type: 2}
   cameraPos: {fileID: 5662291497624303051}
+--- !u!114 &2104028863189666276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2525233938742221705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1f1c2c5dd1f3944b44324992a06c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8719382920367243468
 GameObject:
   m_ObjectHideFlags: 0
