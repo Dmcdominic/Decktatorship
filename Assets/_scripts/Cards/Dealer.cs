@@ -5,7 +5,7 @@ using TMPro;
 
 public class Dealer : MonoBehaviour {
 
-	public Decklist decklist;
+	public List<Decklist> potential_decklists;
 	public Decklist cardRegistry;
 	public List<Card> cardButtons;
 	public float dealTime = 9.9f;
@@ -14,12 +14,14 @@ public class Dealer : MonoBehaviour {
 
 	public TextMeshProUGUI card_draw_timer;
 
+	public Decklist chosen_decklist;
 	private List<CardInfo> deck;
 	private float timer = 0.0f;
 
 
 	//init
 	private void Start() {
+		chosen_decklist = potential_decklists[Random.Range(0, potential_decklists.Count)];
 		refillDeck();
 		timer = dealTime;
 
@@ -96,7 +98,7 @@ public class Dealer : MonoBehaviour {
 
 	// Fills the deck with a new copy of the decklist
 	private void refillDeck() {
-		deck = new List<CardInfo>(decklist.cardInfos);
+		deck = new List<CardInfo>(chosen_decklist.cardInfos);
 	}
 
 
