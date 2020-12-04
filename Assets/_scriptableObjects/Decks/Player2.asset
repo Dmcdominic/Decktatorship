@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6595c446bfb44fe46b25fb8864a442b7, type: 3}
-  m_Name: CardRegistry
+  m_Name: Player2
   m_EditorClassIdentifier: 
-  Title: CARD REGISTRY
-  cardInfos:
-  - {fileID: 11400000, guid: 87100d4b4ee3fb446950730b538aeea6, type: 2}
-  - {fileID: 11400000, guid: e59e0a12f3054ae4eb102400e8014ecd, type: 2}
-  - {fileID: 11400000, guid: e9eee869e87a000478044b2153e3b794, type: 2}
+  Title: 
+  cardInfos: []

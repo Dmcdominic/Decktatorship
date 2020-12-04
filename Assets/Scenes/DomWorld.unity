@@ -666,7 +666,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.95
+  m_fontSize: 54.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -937,7 +937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d263107138471c44db628c5c0f1ae844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decklist: {fileID: 11400000, guid: a8f8fad37e5862c4ca4b7a6f3e0e585b, type: 2}
+  potential_decklists:
+  - {fileID: 11400000, guid: 763db348870a19549b39bbf3ea3fc89c, type: 2}
   cardRegistry: {fileID: 11400000, guid: 174671d1e2884c54b8589df21c29b1bf, type: 2}
   cardButtons:
   - {fileID: 258402408}
@@ -946,6 +947,7 @@ MonoBehaviour:
   dealTime: 9.9
   fill_hand_at_start: 1
   card_draw_timer: {fileID: 338816147}
+  chosen_decklist: {fileID: 0}
 --- !u!114 &479465376
 MonoBehaviour:
   m_ObjectHideFlags: 0

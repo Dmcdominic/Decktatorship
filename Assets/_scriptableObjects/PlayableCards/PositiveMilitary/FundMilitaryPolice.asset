@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b61d9fcf8ae7634eb691808f3b6b67c, type: 3}
-  m_Name: GlobalTest
+  m_Name: FundMilitaryPolice
   m_EditorClassIdentifier: 
-  title: Global Test
-  description: Should have global impact on military
+  title: Fund Military Police
+  description: 
   background: {fileID: 0}
   impacts:
-  - decrease: 1
-    amount: 2
-    quality: 3
-    locality: 2
   - decrease: 0
     amount: 0
-    quality: 0
+    quality: 3
+    locality: 0
+  - decrease: 1
+    amount: 0
+    quality: 2
     locality: 0

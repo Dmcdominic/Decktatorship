@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b61d9fcf8ae7634eb691808f3b6b67c, type: 3}
-  m_Name: Test Playable 1
+  m_Name: ReduceUseOfTorture
   m_EditorClassIdentifier: 
-  title: PLAYABLE TITLE 1
-  description: Hey look! You drew a PLAYABLE TITLE 1!
+  title: Reduce Use Of Torture
+  description: 
+  background: {fileID: 0}
   impacts:
   - decrease: 0
-    amount: 1
+    amount: 0
     quality: 0
     locality: 0
   - decrease: 1
