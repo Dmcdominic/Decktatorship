@@ -214,8 +214,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: (Impacts display here)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6f7a316fb9d97154eafe083d221eef90, type: 2}
+  m_sharedMaterial: {fileID: -6748844434366148706, guid: 6f7a316fb9d97154eafe083d221eef90,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -347,8 +348,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Event Option
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6f7a316fb9d97154eafe083d221eef90, type: 2}
+  m_sharedMaterial: {fileID: -6748844434366148706, guid: 6f7a316fb9d97154eafe083d221eef90,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -421,6 +423,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2260319536622700065}
     m_Modifications:
+    - target: {fileID: 2267712608928543046, guid: d4511c8ce9bda1d49bb460e818c9f670,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 44.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3794982731899079604, guid: d4511c8ce9bda1d49bb460e818c9f670,
         type: 3}
       propertyPath: m_LocalPosition.x

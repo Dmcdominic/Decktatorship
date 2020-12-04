@@ -93,6 +93,7 @@ public class GameMenu : MonoBehaviour
         //   menuAvatar.SetActive(true);
 
         menuUI.SetActive(true);
+        menuUI.transform.parent.gameObject.SetActive(true);
     }
 
     public void CloseMenu()
@@ -100,6 +101,7 @@ public class GameMenu : MonoBehaviour
         //menuCamera.SetActive(false);
         //menuAvatar.SetActive(false);
         menuUI.SetActive(false);
+        menuUI.transform.parent.gameObject.SetActive(false);
     }
 
     //sliders listeners

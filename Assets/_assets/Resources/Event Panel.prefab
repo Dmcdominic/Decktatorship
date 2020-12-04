@@ -66,8 +66,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Event description
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6f7a316fb9d97154eafe083d221eef90, type: 2}
+  m_sharedMaterial: {fileID: -6748844434366148706, guid: 6f7a316fb9d97154eafe083d221eef90,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -296,8 +297,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Event Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6f7a316fb9d97154eafe083d221eef90, type: 2}
+  m_sharedMaterial: {fileID: -6748844434366148706, guid: 6f7a316fb9d97154eafe083d221eef90,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -370,6 +372,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3770606086614814033}
     m_Modifications:
+    - target: {fileID: 10920618242907775, guid: c677e28b16789054f97d95562f995baf,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 32.35
+      objectReference: {fileID: 0}
     - target: {fileID: 2260319536622700064, guid: c677e28b16789054f97d95562f995baf,
         type: 3}
       propertyPath: m_Name
@@ -512,6 +519,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3770606086614814033}
     m_Modifications:
+    - target: {fileID: 10920618242907775, guid: c677e28b16789054f97d95562f995baf,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 32.35
+      objectReference: {fileID: 0}
     - target: {fileID: 2260319536622700064, guid: c677e28b16789054f97d95562f995baf,
         type: 3}
       propertyPath: m_Name

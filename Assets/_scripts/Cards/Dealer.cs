@@ -14,7 +14,7 @@ public class Dealer : MonoBehaviour {
 
 	public TextMeshProUGUI card_draw_timer;
 
-	public Decklist chosen_decklist;
+	private Decklist chosen_decklist;
 	private List<CardInfo> deck;
 	private float timer = 0.0f;
 

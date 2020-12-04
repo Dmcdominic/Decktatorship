@@ -24,7 +24,7 @@ namespace UnitySocketIO {
 
 #if UNITY_EDITOR
             if (settings.url_type == SocketIOSettings.URL_TYPE.GLITCH) {
-                settings.url = "oligarchy-server.glitch.me/";
+                settings.url = "decktatorship-server.glitch.me/";
                 settings.port = 0;
                 settings.sslEnabled = true;
             } else if (settings.url_type == SocketIOSettings.URL_TYPE.LOCAL) {
@@ -34,16 +34,16 @@ namespace UnitySocketIO {
             }
 #elif UNITY_WEBGL
             Debug.Log("UNITY_WEBGL");
-			settings.url = "localhost";
-			settings.port = 3000;
-			settings.sslEnabled = false;
+			settings.url = "decktatorship-server.glitch.me/";
+			settings.port = 0;
+			settings.sslEnabled = true;
 #elif UNITY_STANDALONE
-			settings.url = "oligarchy-server.glitch.me/";
+			settings.url = "decktatorship-server.glitch.me/";
 			settings.port = 0;
 			settings.sslEnabled = true;
 #else
 			if (settings.url_type == SocketIOSettings.URL_TYPE.GLITCH) {
-				settings.url = "oligarchy-server.glitch.me/";
+				settings.url = "decktatorship-server.glitch.me/";
 				settings.port = 0;
 				settings.sslEnabled = true;
 			} else if (settings.url_type == SocketIOSettings.URL_TYPE.LOCAL) {
@@ -54,7 +54,7 @@ namespace UnitySocketIO {
 #endif
         }
 
-		public void Connect() {
+        public void Connect() {
             print("CONNECTING");
             socketIO.Init(settings);
             socketIO.Connect();

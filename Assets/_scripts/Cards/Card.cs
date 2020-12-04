@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class Card : MonoBehaviour {
 	// Fields
 	public Button button;
-	public Text title;
-	public Text description;
+	public TextMeshProUGUI title;
+	public TextMeshProUGUI description;
+
 	public Image icon;
 	public Image backgroundImage;
+
+	public Sprite defaultBackgroundImg;
+
 	public regionView regionV;
 
 	private PlayableCardInfo playableCardInfo = null;
@@ -35,7 +41,11 @@ public class Card : MonoBehaviour {
 		button.interactable = interactable;
 		title.text = playableCardInfo.title;
 		description.text = playableCardInfo.description;
-		backgroundImage.sprite = playableCardInfo.background;
+		if (playableCardInfo && playableCardInfo.background) {
+			backgroundImage.sprite = playableCardInfo.background;
+		} else {
+			backgroundImage.sprite = defaultBackgroundImg;
+		}
 		//icon.sprite = cardIcons.IconSprites[(int)playableCardInfo.impacts[0].quality];
 	}
 
