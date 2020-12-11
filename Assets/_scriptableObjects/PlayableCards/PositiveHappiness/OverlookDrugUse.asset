@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Overlook Drug Use
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 79ec3713eb49c084cab4a7c41db9aca3, type: 3}
   impacts:
   - decrease: 0
     amount: 0

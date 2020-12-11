@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings:
-    url_type: 1
+    url_type: 0
     url: decktatorship-server.glitch.me/
     port: 0
     sslEnabled: 1

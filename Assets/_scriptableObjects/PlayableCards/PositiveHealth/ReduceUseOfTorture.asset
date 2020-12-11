@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Reduce Use Of Torture
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 2d5320eb15ef96045886d53507882584, type: 3}
   impacts:
   - decrease: 0
     amount: 0

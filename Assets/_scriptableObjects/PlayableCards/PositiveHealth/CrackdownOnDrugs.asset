@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Crackdown On Drugs
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: cb315731b60b94842aaae7682d925def, type: 3}
   impacts:
   - decrease: 0
     amount: 0

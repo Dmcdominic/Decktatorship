@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Let The Poor Starve
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: b5033f648f02bc24f87fa1759a5d6e5b, type: 3}
   impacts:
   - decrease: 0
     amount: 0

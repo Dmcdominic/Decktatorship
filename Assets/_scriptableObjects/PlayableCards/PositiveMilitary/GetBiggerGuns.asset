@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Get Bigger Guns
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: c25e7836049a9bc4db37f7f6f3797165, type: 3}
   impacts:
   - decrease: 0
     amount: 0

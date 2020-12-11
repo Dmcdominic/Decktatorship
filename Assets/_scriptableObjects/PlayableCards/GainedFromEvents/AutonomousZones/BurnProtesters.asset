@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Burn Protesters
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 6a4496cb622c7884396a13b12893dbdc, type: 3}
   impacts:
   - decrease: 1
     amount: 2

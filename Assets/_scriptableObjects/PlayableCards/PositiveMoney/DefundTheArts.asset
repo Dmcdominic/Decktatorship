@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Defund The Arts
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 598b5bfbcce738a459d8a3b9278716f4, type: 3}
   impacts:
   - decrease: 0
     amount: 0

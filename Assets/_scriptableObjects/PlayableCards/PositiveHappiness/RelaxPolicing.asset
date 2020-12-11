@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Relax Policing
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: b56b9568461e67f468222435ea620cd9, type: 3}
   impacts:
   - decrease: 0
     amount: 0

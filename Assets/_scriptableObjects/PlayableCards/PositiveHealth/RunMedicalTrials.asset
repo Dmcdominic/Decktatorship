@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Run Medical Trials
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 2df42fa0b2378884b8fd13794c8393aa, type: 3}
   impacts:
   - decrease: 0
     amount: 0

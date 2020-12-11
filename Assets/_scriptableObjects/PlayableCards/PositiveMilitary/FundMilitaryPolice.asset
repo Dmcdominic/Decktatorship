@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Fund Military Police
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 85dfbc4d2b7dc664ca747e1d9fb538e3, type: 3}
   impacts:
   - decrease: 0
     amount: 0

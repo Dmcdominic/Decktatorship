@@ -16,7 +16,7 @@ MonoBehaviour:
   description: A series of Autonmous Zones have begun to spring up in a number of
     major cities. Members of the zones are highly critical of your administration
     and are calling for reform. How will you deal with these unruly citizens?
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: cb1ff4d41e29e7441957e99202821230, type: 3}
   eventOption1:
     title: Cave To Demands
     description: Reduce the budget of the miltary police and redect those funds to
