@@ -14,10 +14,7 @@ public class ImpactIcon : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Awake() {
-		sr.enabled = false;
-		arrow1.enabled = false;
-		arrow2.enabled = false;
-		arrow3.enabled = false;
+		setBlank();
 	}
 
 
@@ -36,5 +33,14 @@ public class ImpactIcon : MonoBehaviour {
 			arrow3.sprite = arrowSprite;
 			arrow3.enabled = true;
 		}
+	}
+
+
+	// Hides all the icons
+	public void setBlank() {
+		sr.enabled = false;
+		arrow1.enabled = false;
+		arrow2.enabled = false;
+		arrow3.enabled = false;
 	}
 }

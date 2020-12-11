@@ -33,6 +33,8 @@ public class Card : MonoBehaviour {
 			title.text = "";
 			description.text = "waiting for next card...";
 			backgroundImage.sprite = null;
+			impactIcon1.setBlank();
+			impactIcon2.setBlank();
 			return;
 		}
 /*		if (cardIcons == null)
