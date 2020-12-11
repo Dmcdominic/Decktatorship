@@ -14,6 +14,9 @@ public class Card : MonoBehaviour {
 	public Image icon;
 	public Image backgroundImage;
 
+	public ImpactIcon impactIcon1;
+	public ImpactIcon impactIcon2;
+
 	public Sprite defaultBackgroundImg;
 
 	public regionView regionV;
@@ -47,6 +50,12 @@ public class Card : MonoBehaviour {
 			backgroundImage.sprite = defaultBackgroundImg;
 		}
 		//icon.sprite = cardIcons.IconSprites[(int)playableCardInfo.impacts[0].quality];
+		if (playableCardInfo.impacts.Count > 0) {
+			impactIcon1.setImpact(playableCardInfo.impacts[0]);
+			if (playableCardInfo.impacts.Count > 1) {
+				impactIcon2.setImpact(playableCardInfo.impacts[1]);
+			}
+		}
 	}
 
 
