@@ -12,7 +12,7 @@ public class EventPanel : MonoBehaviour {
 	public EventOptionDisplay eventOptionDisplay1;
 	public EventOptionDisplay eventOptionDisplay2;
 	
-	public CardIcons cardIcons;
+	public QualityIcons qualityIcons;
 	public Decklist cardRegistry;
 
 	private EventCardInfo eventCardInfo;

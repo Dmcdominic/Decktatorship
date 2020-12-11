@@ -15,7 +15,7 @@ public class EventOptionDisplay : MonoBehaviour {
 
 	private EventPanel eventPanel;
 	private EventOption eventOption;
-	private CardIcons cardIcons;
+	private QualityIcons qualityIcons;
 
 
 	// Initializes the card to use a particular CardInfo

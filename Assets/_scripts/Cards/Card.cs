@@ -22,7 +22,6 @@ public class Card : MonoBehaviour {
 	public regionView regionV;
 
 	private PlayableCardInfo playableCardInfo = null;
-	private CardIcons cardIcons;
 
 
 	// Initializes the card to use a particular CardInfo
