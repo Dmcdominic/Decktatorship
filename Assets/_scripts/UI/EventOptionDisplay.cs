@@ -8,10 +8,10 @@ using TMPro;
 public class EventOptionDisplay : MonoBehaviour {
 	public Button button;
 	public TextMeshProUGUI title;
-	//public Text description;
-	//public Image icon;
-	//public Image backgroundImage;
 	public Card card;
+	public ImpactIcon impactIcon1;
+	public ImpactIcon impactIcon2;
+	public ImpactIcon impactIcon3;
 
 	private EventPanel eventPanel;
 	private EventOption eventOption;
@@ -25,9 +25,16 @@ public class EventOptionDisplay : MonoBehaviour {
 
 		button.interactable = local_authority;
 		title.text = eventOption.title;
-		//description.text = eventOption.description;
-		//backgroundImage.sprite = eventOption.background;
-		//icon.sprite = cardIcons.IconSprites[(int)eventOption.impacts[0].quality];
+
+		if (eventOption.impacts.Count > 0) {
+			impactIcon1.setImpact(eventOption.impacts[0]);
+			if (eventOption.impacts.Count > 1) {
+				impactIcon2.setImpact(eventOption.impacts[1]);
+				if (eventOption.impacts.Count > 2) {
+					impactIcon3.setImpact(eventOption.impacts[2]);
+				}
+			}
+		}
 
 		card.setCardInfo(eventOption.cardGained, false);
 	}

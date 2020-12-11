@@ -27,7 +27,7 @@ public struct Impact {
 	public Locality locality;
 
 	public int getScaledAmount() {
-		int baseAmt = 1;
+		int baseAmt = 5;
 		int absAmt = baseAmt * (1 + (int)amount);
 		int finalAmt = decrease ? -absAmt : absAmt;
 		return finalAmt;

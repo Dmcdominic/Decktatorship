@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class qualityDecay : MonoBehaviour {
 
-	private const int MIN = -3; // inclusive
-	private const int MAX = 3; // exclusive
+	private const int MIN = -5; // inclusive
+	private const int MAX = 4; // exclusive
 
 	private const float INTERVAL_MIN = 2.5f;
-	private const float INTERVAL_MAX = 6.0f;
+	private const float INTERVAL_MAX = 5.0f;
 
 	private NetObject thisNetObj;
 	private float timer;
