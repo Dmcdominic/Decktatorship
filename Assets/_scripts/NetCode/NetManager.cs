@@ -584,7 +584,7 @@ public class NetManager : MonoBehaviour
     //send a card to be shuffled into everyone's decks
     public void SendCardToBeShuffled(string cardTitle) {
         NetVariables vars = new NetVariables("N/A", "N/A", null, false, false);
-        vars.cardToShuffleTitle = cardTitle;
+        vars.cardToShuffle = cardTitle;
         socket.Emit("cardToBeShuffled", JsonUtility.ToJson(vars));
     }
 

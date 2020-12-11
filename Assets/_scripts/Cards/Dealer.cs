@@ -35,11 +35,11 @@ public class Dealer : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (timer > 0) {
-			card_draw_timer.text = "Next card: " + timer.ToString("F1");
+			card_draw_timer.text = "Days til Resupply: " + timer.ToString("F0");
 			timer -= Time.deltaTime;
 			return;
 		}
-		card_draw_timer.text = "Next card: 0.0";
+		card_draw_timer.text = "Days til Resupply: 0";
 
 		// Try to find a card slot to deal to
 		tryToDraw();
@@ -104,12 +104,6 @@ public class Dealer : MonoBehaviour {
 
 	// Adds a new card into the deck
 	public void shuffleIntoDeck(string cardTitle) {
-		foreach (CardInfo cardInfo in cardRegistry.cardInfos) {
-			if (cardInfo.title.Equals(cardTitle)) {
-				deck.Add(cardInfo);
-				return;
-			}
-		}
-		throw new System.Exception("Couldn't find card with title: " + cardTitle + " in CardRegistry");
+		deck.Add(cardRegistry.getCardInfoByTitle(cardTitle));
 	}
 }

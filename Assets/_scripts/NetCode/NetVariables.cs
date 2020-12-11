@@ -20,7 +20,11 @@ public class NetVariables {
 	public string eventTitle;
 
 	// Card to shuffle title
-	public string cardToShuffleTitle;
+	public string cardToShuffle;
+
+	// Card to place
+	public string cardToStack;
+	public long lastCTSTtime; // TODO - make this a string?
 
 
 	// Constructor

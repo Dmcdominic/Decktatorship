@@ -59,6 +59,7 @@ public class Card : MonoBehaviour {
 
 		if (playableCardInfo == null) return;
 		apply_impact_list(playableCardInfo.impacts, regionV);
+		sendCardToStack(playableCardInfo.title);
 		setCardInfo(null);
 	}
 
@@ -66,6 +67,14 @@ public class Card : MonoBehaviour {
 	// Returns true iff this card slot is empty
 	public bool is_waiting_for_card() {
 		return playableCardInfo == null;
+	}
+
+
+	// Sends to the server a card to be stacked onto this region
+	private void sendCardToStack(string cardTitle) {
+		NetVariables netVars = NetVariables.makeIncrCopy(regionV.currentRegion.netVariables);
+		netVars.cardToStack = cardTitle;
+		Net.IncrVariables(regionV.currentRegion.netVariables.uniqueId, netVars);
 	}
 
 
