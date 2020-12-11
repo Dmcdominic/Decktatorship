@@ -6,7 +6,7 @@ public class LastCardPlayed : MonoBehaviour {
 	public FloatingCard floatingCardPrefab;
 	public Decklist cardRegistry;
 
-	const float d_floating_y = 0.01f;
+	const float d_floating_y = 0.002f;
 
 	private SpriteRenderer sr;
 	private float target_y;

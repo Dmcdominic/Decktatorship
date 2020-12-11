@@ -41,6 +41,14 @@ public class EventPanel : MonoBehaviour {
 	}
 
 
+	// Called every frame
+	private void Update() {
+		if (GameOverObserver.gameIsOver) {
+			Destroy(gameObject);
+		}
+	}
+
+
 	// Initializes the card to use a particular CardInfo
 	public void setEventInfo(string eventTitle, bool local_authority) {
 		foreach (CardInfo cardInfo in cardRegistry.cardInfos) {

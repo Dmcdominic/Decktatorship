@@ -14,9 +14,9 @@ public class FloatingCard : MonoBehaviour {
 	[HideInInspector]
 	public float target_y;
 
-	const float INIT_Y = 2.0f;
-	const float SPEED = 0.15f;
-	const float ROTATION_MAX = 30.0f;
+	const float INIT_Y = 0.8f;
+	const float SPEED = 0.13f;
+	const float ROTATION_MAX = 50.0f;
 
 
 	// Start is called before the first frame update
@@ -24,7 +24,7 @@ public class FloatingCard : MonoBehaviour {
 		sr.sprite = cardInfo.background;
 		title.text = cardInfo.title;
 		transform.position = new Vector3(transform.position.x, INIT_Y, transform.position.z);
-		float new_y = Random.Range(-ROTATION_MAX, ROTATION_MAX);
+		float new_y = 180.0f + Random.Range(-ROTATION_MAX, ROTATION_MAX);
 		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, new_y, transform.eulerAngles.z);
 	}
 
