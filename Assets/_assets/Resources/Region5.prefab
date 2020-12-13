@@ -199,5 +199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RegionMesh 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4802824435569291597, guid: 68eb9f28e475430428d60c78f8792f5e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68eb9f28e475430428d60c78f8792f5e, type: 3}
