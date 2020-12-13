@@ -289,11 +289,13 @@ public class NetManager : MonoBehaviour
 			// TODO - do this only when the server tells us we need fresh stuff?
 			//    OR - initialize them as PERSISTENT and have a reset button?
 			if (Net.authority) {
-				Net.Instantiate("redWrapper", Net.SHARED, new Vector3(), new NetVariables("TBD", "red"));
-				Net.Instantiate("purpleWrapper", Net.SHARED, new Vector3(), new NetVariables("TBD", "purple"));
-				Net.Instantiate("greenWrapper", Net.SHARED, new Vector3(), new NetVariables("TBD", "green"));
-				Net.Instantiate("blueWrapper", Net.SHARED, new Vector3(), new NetVariables("TBD", "blue"));
-			}
+				Net.Instantiate("Region1", Net.SHARED, new Vector3(), new NetVariables("TBD", "red"));
+				Net.Instantiate("Region2", Net.SHARED, new Vector3(), new NetVariables("TBD", "purple"));
+				Net.Instantiate("Region3", Net.SHARED, new Vector3(), new NetVariables("TBD", "green"));
+                Net.Instantiate("Region4", Net.SHARED, new Vector3(), new NetVariables("TBD", "blue"));
+                Net.Instantiate("Region5", Net.SHARED, new Vector3(), new NetVariables("TBD", "orange"));
+                Net.Instantiate("Region6", Net.SHARED, new Vector3(), new NetVariables("TBD", "black"));
+            }
 
 
 		}//is it me?
