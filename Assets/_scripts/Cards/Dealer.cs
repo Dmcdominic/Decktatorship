@@ -5,7 +5,7 @@ using TMPro;
 
 public class Dealer : MonoBehaviour {
 
-	public List<Decklist> potential_decklists;
+	public List<Decklist> decklists_by_role;
 	public Decklist cardRegistry;
 	public List<Card> cardButtons;
 	public float dealTime = 9.9f;
@@ -14,14 +14,13 @@ public class Dealer : MonoBehaviour {
 
 	public TextMeshProUGUI card_draw_timer;
 
-	private Decklist chosen_decklist;
+	private Decklist chosen_decklist = null;
 	private List<CardInfo> deck;
 	private float timer = 0.0f;
 
 
 	//init
 	private void Start() {
-		chosen_decklist = potential_decklists[Random.Range(0, potential_decklists.Count)];
 		refillDeck();
 		timer = dealTime;
 
@@ -98,6 +97,13 @@ public class Dealer : MonoBehaviour {
 
 	// Fills the deck with a new copy of the decklist
 	private void refillDeck() {
+		if (chosen_decklist == null) {
+			if (Net.manager.my_player_index < 0) {
+				throw new System.Exception("my_player_index not set by NetManager (we're not connected)");
+			}
+			//chosen_decklist = potential_decklists[Random.Range(0, potential_decklists.Count)];
+			chosen_decklist = decklists_by_role[Net.manager.my_player_index % decklists_by_role.Count];
+		}
 		deck = new List<CardInfo>(chosen_decklist.cardInfos);
 	}
 

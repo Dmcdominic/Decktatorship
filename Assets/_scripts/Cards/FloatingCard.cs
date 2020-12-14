@@ -8,20 +8,26 @@ public class FloatingCard : MonoBehaviour {
 	public SpriteRenderer sr;
 	public TextMeshPro title;
 
+	public Sprite defaultBackgroundImg;
+
 	[HideInInspector]
 	public CardInfo cardInfo;
 
 	[HideInInspector]
 	public float target_y;
 
-	const float INIT_Y = 0.8f;
+	const float INIT_Y = 0.6f;
 	const float SPEED = 0.13f;
 	const float ROTATION_MAX = 50.0f;
 
 
 	// Start is called before the first frame update
 	void Start() {
-		sr.sprite = cardInfo.background;
+		if (cardInfo.background != null) {
+			sr.sprite = cardInfo.background;
+		} else {
+			sr.sprite = defaultBackgroundImg;
+		}
 		title.text = cardInfo.title;
 		transform.position = new Vector3(transform.position.x, INIT_Y, transform.position.z);
 		float new_y = 180.0f + Random.Range(-ROTATION_MAX, ROTATION_MAX);

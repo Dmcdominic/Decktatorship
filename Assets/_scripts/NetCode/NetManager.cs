@@ -29,9 +29,20 @@ public class NetManager : MonoBehaviour
     
     //reference to my avatar (if any)
     public GameObject myAvatar;
-    
-    public Vector3 spawnPoint = new Vector3(11.19f, 0, 29.6f);
-    public float spawnRadius = 2;
+
+    //public Vector3 spawnPoint = new Vector3(11.19f, 0, 29.6f);
+    //public float spawnRadius = 2;
+
+    private int _my_player_index = -1;
+    public int my_player_index {
+        get {
+            if (Net.connected) {
+                return _my_player_index;
+            } else {
+                return -1;
+            }
+        }
+    }
 
 
     // early init
@@ -192,11 +203,11 @@ public class NetManager : MonoBehaviour
         p.DNA = data.DNA;
 
         //is it me?
-        if (data.id == socket.SocketID)
-        {
+        if (data.id == socket.SocketID) {
+            _my_player_index = Net.players.Count;
 
             //close the menu, change the camera
-            if(gameMenu != null)
+            if (gameMenu != null)
             {
                 gameMenu.CloseMenu();
             }

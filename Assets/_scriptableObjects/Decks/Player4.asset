@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Player4
   m_EditorClassIdentifier: 
   Title: 
-  cardInfos: []
+  cardInfos:
+  - {fileID: 11400000, guid: c2fcb26179107da41b1e898e021f3212, type: 2}
+  - {fileID: 11400000, guid: 6565fb728c6272c438a8ee34b2989b3b, type: 2}
+  - {fileID: 11400000, guid: 3e6ef5f8d90364e4b9b85dd81f275e2d, type: 2}
+  - {fileID: 11400000, guid: bd1f8d12bff0b0145a50e5a35d52c4e6, type: 2}
