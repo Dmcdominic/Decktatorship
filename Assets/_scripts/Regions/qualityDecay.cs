@@ -14,10 +14,15 @@ public class qualityDecay : MonoBehaviour {
 	private NetObject thisNetObj;
 	private float timer;
 
-	public static Dictionary<string, NetObject> regionNetObs = new Dictionary<string, NetObject>(); // Key = uniqueID
+	public static Dictionary<string, NetObject> regionNetObs; // Key = uniqueID
 
 
 	// init
+	private void Awake() {
+		regionNetObs = new Dictionary<string, NetObject>();
+	}
+
+	// late init
 	private void Start() {
 		thisNetObj = GetComponentInParent<NetObject>();
 		regionNetObs.Add(thisNetObj.netVariables.uniqueId, thisNetObj);

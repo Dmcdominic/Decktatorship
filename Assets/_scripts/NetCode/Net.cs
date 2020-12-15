@@ -14,7 +14,7 @@ public static class Net
     public static NetManager manager;
 
     //automatic transform update rate for netobjects
-    public static float UPDATE = 1/30; //s
+    public const float UPDATE = 1/30; //s
     
     //the client socket id
     public static string myId = "";
@@ -71,6 +71,11 @@ public static class Net
     {
         manager.UpdateTransform(gameObject);
     }
+
+    public static void SendRestart()
+    {
+        manager.SendRestart();
+	}
 
     public static void SendCardToBeShuffled(string cardTitle) {
         manager.SendCardToBeShuffled(cardTitle);

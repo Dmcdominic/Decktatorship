@@ -5,11 +5,12 @@ using UnityEngine;
 public class GameOverObserver : MonoBehaviour {
 	public GameObject gameOverScreen;
 
-	public static bool gameIsOver = false;
+	public static bool gameIsOver;
 
 
 	// init
-	private void Start() {
+	private void Awake() {
+		gameIsOver = false;
 		gameOverScreen.SetActive(false);
 	}
 
@@ -20,7 +21,7 @@ public class GameOverObserver : MonoBehaviour {
 		if (qualityDecay.regionNetObs == null) return;
 		foreach (NetObject netObj in qualityDecay.regionNetObs.Values) {
 			foreach (int state in netObj.netVariables.qualityStates.states) {
-				if (state <= QualityStates.min) {
+				if (state <= QualityStates.MIN) {
 					endTheGame();
 					return;
 				}

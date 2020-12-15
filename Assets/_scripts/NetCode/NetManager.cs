@@ -62,9 +62,8 @@ public class NetManager : MonoBehaviour
         gameMenu = GetComponent<GameMenu>();
 
         //connect to the server
-        socket.Connect();
-
         Net.connected = false;
+        socket.Connect();
         
         //Listeners connecting socket events from the server and the functions below
         socket.On("socketConnect", OnSocketConnect);
@@ -94,6 +93,9 @@ public class NetManager : MonoBehaviour
 
         //a net object changed type TEMPORARY, PRIVATE, SHARED... 
         socket.On("changeType", OnChangeType);
+
+        //need to restart
+        socket.On("restart", OnRestart);
 
         //net variables changed
         socket.On("cardToBeShuffled", OnCardToBeShuffled);
@@ -592,6 +594,17 @@ public class NetManager : MonoBehaviour
             else
                 print("Warning: there is no PUBLIC function named " + data.functionName + " on object " + data.objectName + " and component " + data.componentName);
         }
+    }
+
+    //send a restart command to the server, that will disconnect everyone
+    public void SendRestart() {
+        socket.Emit("restart", JsonUtility.ToJson(""));
+    }
+
+    // need to restart
+    public void OnRestart(SocketIOEvent e) {
+        Debug.Log("Received a restart message. Reloading...");
+        Restart.reload();
     }
 
     //send a card to be shuffled into everyone's decks

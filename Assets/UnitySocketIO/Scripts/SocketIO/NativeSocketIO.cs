@@ -243,6 +243,7 @@ namespace UnitySocketIO.SocketIO {
 
         void OnSocketError(object sender, ErrorEventArgs e) {
             Debug.Log(e.Message);
+            Restart.reload();
         }
 
         void OnSocketClose(object sender, CloseEventArgs e) {

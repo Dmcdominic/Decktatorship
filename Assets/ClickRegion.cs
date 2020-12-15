@@ -17,6 +17,7 @@ public class ClickRegion : MonoBehaviour {
 	void Start() {
 		thisNetObj = GetComponentInParent<NetObject>();
 		cameraMan = Camera.main.GetComponent<MoveCameraToArea>();
+		regionV.currentRegion = null; // To avoid dereference destroyed objects after a restart
 	}
 
 

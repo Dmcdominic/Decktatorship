@@ -62,7 +62,7 @@ public class QualityDisplays : MonoBehaviour {
 			Image image = fill_images[i];
 			image.enabled = true;
 			float state = thisNetObj.netVariables.qualityStates.states[i];
-			image.fillAmount = (state - QualityStates.min) / (QualityStates.soft_max - QualityStates.min);
+			image.fillAmount = (state - QualityStates.MIN) / (QualityStates.SOFT_MAX - QualityStates.MIN);
 		}
 	}
 }
