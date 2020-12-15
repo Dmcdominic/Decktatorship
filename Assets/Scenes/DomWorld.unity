@@ -2301,6 +2301,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: QualityDisplay (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1826471267903724376, guid: bb83c40e6bdeb9f43be4ade0c5562f54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1826471267903724377, guid: bb83c40e6bdeb9f43be4ade0c5562f54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3178,6 +3183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QualityDisplay (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826471267903724376, guid: bb83c40e6bdeb9f43be4ade0c5562f54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1826471267903724377, guid: bb83c40e6bdeb9f43be4ade0c5562f54,
         type: 3}
@@ -4404,6 +4414,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: QualityDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 1826471267903724376, guid: bb83c40e6bdeb9f43be4ade0c5562f54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1826471267903724377, guid: bb83c40e6bdeb9f43be4ade0c5562f54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5376,6 +5391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QualityDisplay (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826471267903724376, guid: bb83c40e6bdeb9f43be4ade0c5562f54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1826471267903724377, guid: bb83c40e6bdeb9f43be4ade0c5562f54,
         type: 3}

@@ -20,7 +20,7 @@ public class GameOverObserver : MonoBehaviour {
 		if (qualityDecay.regionNetObs == null) return;
 		foreach (NetObject netObj in qualityDecay.regionNetObs.Values) {
 			foreach (int state in netObj.netVariables.qualityStates.states) {
-				if (state <= 0) {
+				if (state <= QualityStates.min) {
 					endTheGame();
 					return;
 				}

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class qualityDecay : MonoBehaviour {
 
-	private const int MIN = -5; // inclusive
-	private const int MAX = 4; // exclusive
+	private const int MIN = -4; // inclusive
+	private const int MAX = 3; // inclusive
 
 	private const float INTERVAL_MIN = 2.5f;
 	private const float INTERVAL_MAX = 5.0f;
@@ -34,7 +34,7 @@ public class qualityDecay : MonoBehaviour {
 		}
 
 		int quality = Random.Range(0, QualityStates.NUM_QUALITIES);
-		int delta = Random.Range(MIN, MAX);
+		int delta = Random.Range(MIN, MAX + 1);
 		NetVariables incrVars = NetVariables.makeIncrCopy(thisNetObj.netVariables);
 
 		thisNetObj.netVariables.qualityStates.states[quality] += delta;

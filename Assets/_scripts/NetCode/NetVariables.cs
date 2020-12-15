@@ -33,7 +33,7 @@ public class NetVariables {
 		regionName = _regionName.Replace("Wrapper", "").ToUpper();
 		qualityStates.states = new int[QualityStates.NUM_QUALITIES];
 		for (int i=0; i < qualityStates.states.Length; i++) {
-			qualityStates.states[i] = incrCopy ? 0 : 40; // Initial value
+			qualityStates.states[i] = incrCopy ? 0 : QualityStates.init_value;
 		}
 		eventInfo = _eventInfo;
 		if (eventInfo) eventTitle = eventInfo.title;

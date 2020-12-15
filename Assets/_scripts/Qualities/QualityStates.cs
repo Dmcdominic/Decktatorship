@@ -15,6 +15,9 @@ public struct QualityStates {
 	public int[] states; // Indexed by the Quality enum
 	// length MUST be: QualityStates.NUM_QUALITIES
 	public static int NUM_QUALITIES = System.Enum.GetValues(typeof(Quality)).Length;
+	public static int soft_max = 50;
+	public static int init_value = 40;
+	public static int min = 0;
 }
 
 
