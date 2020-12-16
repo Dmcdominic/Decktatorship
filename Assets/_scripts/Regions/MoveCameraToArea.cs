@@ -20,6 +20,7 @@ public class MoveCameraToArea : MonoBehaviour
     {
         //Lerp Position
         transform.position = Vector3.Lerp(transform.position, currentView.localPosition, Time.deltaTime * transitionSpeed);
+    //    transform.Rotate(90.0f, 0.0f, 0.0f);
     }
 
 
