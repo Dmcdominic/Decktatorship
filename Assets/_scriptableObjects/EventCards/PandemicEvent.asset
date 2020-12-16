@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04247c050714d54f9ba916a5a1ca161, type: 3}
+  m_Name: PandemicEvent
+  m_EditorClassIdentifier: 
+  title: A Pandemic Sweeps Through The Country
+  description: 'There have been wide spread reports in every region of an illness
+    that seemingly has no symtoms other than a mild cough until after 2 weeks, where
+    it suddenly causes total organ failure and incontinence. If we dont act quickly
+    we could lose a significant portion of our work force! How should we contain
+    the disease '
+  background: {fileID: 21300000, guid: cb1ff4d41e29e7441957e99202821230, type: 3}
+  eventOption1:
+    title: Total Lockdown
+    description: 'You spend most days entirely in your humble 8,000ft2 home already,
+      so why can''t everyone? It''s best way to keep people from defecating on the
+      street. Oh, and containg the virus I guess. '
+    cardGained: {fileID: 11400000, guid: 60e360ad2229c7a4f8f38d2efbc260b5, type: 2}
+    impacts:
+    - decrease: 0
+      amount: 1
+      quality: 0
+      locality: 2
+    - decrease: 1
+      amount: 2
+      quality: 1
+      locality: 2
+  eventOption2:
+    title: Seize The Opportunity
+    description: When you look at your citizens, you dont see a bunch of weak, hopeless
+      subjects. You see strong workers who can survive anything. They are so strong
+      in fact that you think they could survive a whole other virus and the guys
+      in bioweapons have been wanting to run some field tests recently.
+    cardGained: {fileID: 11400000, guid: 88a4998df0613ba47b12918c5b7e2cf0, type: 2}
+    impacts:
+    - decrease: 0
+      amount: 1
+      quality: 2
+      locality: 0
+    - decrease: 0
+      amount: 0
+      quality: 3
+      locality: 0
+    - decrease: 1
+      amount: 2
+      quality: 0
+      locality: 2

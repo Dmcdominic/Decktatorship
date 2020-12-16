@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04247c050714d54f9ba916a5a1ca161, type: 3}
+  m_Name: DebtEvent
+  m_EditorClassIdentifier: 
+  title: The Country Is in Massive Debt!
+  description: All of the spending on military over the years has finally caught
+    up! If we dont act now we might not be able to preform our bi-anual tank upgrade!
+    How should we save money?
+  background: {fileID: 0}
+  eventOption1:
+    title: Recruit Foreign Workers
+    description: Everyone knows you can pay foreigners a lot less for the same tasks,
+      so lets just export all the lower level government jobs to call centers in
+      nearby 3rd world country. Who knows, maybe it will end up being more efficient.
+    cardGained: {fileID: 11400000, guid: 4d3fe4f97ae8be84cb02efa29f166546, type: 2}
+    impacts:
+    - decrease: 0
+      amount: 1
+      quality: 2
+      locality: 2
+    - decrease: 1
+      amount: 1
+      quality: 1
+      locality: 2
+  eventOption2:
+    title: Start A "Work Program"
+    description: What if, we took everyone who didn't have a job and gave them a
+      job like farming or mining? And in return for the opprotunity to work for their
+      country they worked without pay? Only an enemy of the state would refuse that
+      deal and you know what we do to ememies of the state.
+    cardGained: {fileID: 11400000, guid: d314c975e56ac4149acd0d2686148f1a, type: 2}
+    impacts:
+    - decrease: 0
+      amount: 1
+      quality: 2
+      locality: 2
+    - decrease: 1
+      amount: 1
+      quality: 0
+      locality: 2

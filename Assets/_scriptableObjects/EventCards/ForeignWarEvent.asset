@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04247c050714d54f9ba916a5a1ca161, type: 3}
+  m_Name: ForeignWarEvent
+  m_EditorClassIdentifier: 
+  title: Neighboring Country Declares War
+  description: The country to the west of you has suddenly declared war! They say
+    they seek to free your citizen of a tyrannical ruler. How ridiculous! How should
+    we deal with the scum?
+  background: {fileID: 21300000, guid: cb1ff4d41e29e7441957e99202821230, type: 3}
+  eventOption1:
+    title: Create A Meat Shield
+    description: Everyone knows that the best way to solve a problem is to through
+      crap at the wall and see what sticks. In this case, the problem is war, the
+      crap is your citizens, and what sticks is their entrails after they have been
+      mowed down by enemy machine guns. Oh well, as long as you win.yo
+    cardGained: {fileID: 11400000, guid: 9e4515b5d9ea19b4599258e0be76f271, type: 2}
+    impacts:
+    - decrease: 0
+      amount: 2
+      quality: 3
+      locality: 2
+    - decrease: 1
+      amount: 1
+      quality: 1
+      locality: 2
+    - decrease: 1
+      amount: 0
+      quality: 0
+      locality: 2
+  eventOption2:
+    title: Create A "New" WMD Division
+    description: Let's be real, everyone already knew that we had one. Now we can
+      make it public without the backlash. I wonder what the boys in bioweapons have
+      cooking up? Let's just make sure to not accidentally release another flesh
+      eating super bacteria agian.
+    cardGained: {fileID: 11400000, guid: 2262e389577b4a64f98fe2fc4b6d9517, type: 2}
+    impacts:
+    - decrease: 0
+      amount: 1
+      quality: 3
+      locality: 2
+    - decrease: 1
+      amount: 1
+      quality: 0
+      locality: 2

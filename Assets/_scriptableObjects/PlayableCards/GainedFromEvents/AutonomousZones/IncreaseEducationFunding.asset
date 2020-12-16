@@ -12,19 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b61d9fcf8ae7634eb691808f3b6b67c, type: 3}
   m_Name: IncreaseEducationFunding
   m_EditorClassIdentifier: 
-  title: Increase Education Funding
+  title: Increase Education Budget
   description: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 1752dc918449e4942b6d60778e1c685f, type: 3}
   impacts:
-  - decrease: 1
-    amount: 0
-    quality: 3
-    locality: 0
-  - decrease: 1
-    amount: 0
-    quality: 2
-    locality: 0
   - decrease: 0
     amount: 1
     quality: 1
+    locality: 0
+  - decrease: 1
+    amount: 1
+    quality: 2
     locality: 0

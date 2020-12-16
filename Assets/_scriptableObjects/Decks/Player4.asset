@@ -12,9 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6595c446bfb44fe46b25fb8864a442b7, type: 3}
   m_Name: Player4
   m_EditorClassIdentifier: 
-  Title: 
+  Title: Secretary Of The Treasury
   cardInfos:
-  - {fileID: 11400000, guid: c2fcb26179107da41b1e898e021f3212, type: 2}
-  - {fileID: 11400000, guid: 6565fb728c6272c438a8ee34b2989b3b, type: 2}
-  - {fileID: 11400000, guid: 3e6ef5f8d90364e4b9b85dd81f275e2d, type: 2}
+  - {fileID: 11400000, guid: 4d6fc470291d564439d27e0c28a9539f, type: 2}
+  - {fileID: 11400000, guid: 4d6fc470291d564439d27e0c28a9539f, type: 2}
+  - {fileID: 11400000, guid: 954dccd431194e746b84526dee9c80ee, type: 2}
+  - {fileID: 11400000, guid: 954dccd431194e746b84526dee9c80ee, type: 2}
+  - {fileID: 11400000, guid: 19e6aeb436fde0741bcdf793f3ca855d, type: 2}
+  - {fileID: 11400000, guid: 19e6aeb436fde0741bcdf793f3ca855d, type: 2}
   - {fileID: 11400000, guid: bd1f8d12bff0b0145a50e5a35d52c4e6, type: 2}
+  - {fileID: 11400000, guid: bd1f8d12bff0b0145a50e5a35d52c4e6, type: 2}
+  - {fileID: 11400000, guid: 520c77419b92bc34589a73947e6d75fa, type: 2}
+  - {fileID: 11400000, guid: 520c77419b92bc34589a73947e6d75fa, type: 2}
+  - {fileID: 11400000, guid: 6565fb728c6272c438a8ee34b2989b3b, type: 2}
+  - {fileID: 11400000, guid: 6565fb728c6272c438a8ee34b2989b3b, type: 2}
+  - {fileID: 11400000, guid: e973b05564251bf4191d6058a0a4fb14, type: 2}

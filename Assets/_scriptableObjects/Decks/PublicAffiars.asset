@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6595c446bfb44fe46b25fb8864a442b7, type: 3}
+  m_Name: PublicAffiars
+  m_EditorClassIdentifier: 
+  Title: 'Head of Public Affiars '
+  cardInfos:
+  - {fileID: 11400000, guid: c2fcb26179107da41b1e898e021f3212, type: 2}
+  - {fileID: 11400000, guid: c2fcb26179107da41b1e898e021f3212, type: 2}
+  - {fileID: 11400000, guid: bd1f8d12bff0b0145a50e5a35d52c4e6, type: 2}
+  - {fileID: 11400000, guid: bd1f8d12bff0b0145a50e5a35d52c4e6, type: 2}
+  - {fileID: 11400000, guid: 216681dfea6af0f4bada4b73c3504f4b, type: 2}
+  - {fileID: 11400000, guid: 216681dfea6af0f4bada4b73c3504f4b, type: 2}
+  - {fileID: 11400000, guid: 4d6fc470291d564439d27e0c28a9539f, type: 2}
+  - {fileID: 11400000, guid: 4d6fc470291d564439d27e0c28a9539f, type: 2}
+  - {fileID: 11400000, guid: 721c14e415f1fa6439af27a4908b54a8, type: 2}
+  - {fileID: 11400000, guid: 721c14e415f1fa6439af27a4908b54a8, type: 2}
+  - {fileID: 11400000, guid: 3e6ef5f8d90364e4b9b85dd81f275e2d, type: 2}
+  - {fileID: 11400000, guid: 3e6ef5f8d90364e4b9b85dd81f275e2d, type: 2}
+  - {fileID: 11400000, guid: 87100d4b4ee3fb446950730b538aeea6, type: 2}
