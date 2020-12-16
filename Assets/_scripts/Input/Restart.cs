@@ -41,6 +41,7 @@ public class Restart : MonoBehaviour {
 		if (Net.connected) {
 			Net.manager.socket.Close();
 		}
+		qualityDecay.regionNetObs = new Dictionary<string, NetObject>();
 		Time.timeScale = 1;
 		//SceneManager.LoadScene(0);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
