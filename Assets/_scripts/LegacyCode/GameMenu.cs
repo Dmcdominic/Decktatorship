@@ -52,6 +52,11 @@ public class GameMenu : MonoBehaviour
     {
 
         joinButton.interactable = Net.connected;
+        if (Net.connected) {
+            joinButton.GetComponentInChildren<Text>().text = "JOIN";
+		} else {
+            joinButton.GetComponentInChildren<Text>().text = "connecting...";
+        }
     }
 
     //take the data and submit it
